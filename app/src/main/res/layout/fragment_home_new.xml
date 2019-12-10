@@ -3,10 +3,30 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="轮播"-->
+<!--        ></TextView>-->
+
+<!--    <com.youth.banner.Banner-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/banner"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="120dp"-->
+<!--        app:title_textcolor="@color/white"-->
+<!--        app:title_height="20dp"-->
+<!--        app:title_textsize="15dp"-->
+
+<!--        />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home_news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="轮播"
-        ></TextView>
+        android:overScrollMode="never"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

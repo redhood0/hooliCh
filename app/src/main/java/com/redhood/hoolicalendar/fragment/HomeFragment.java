@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new PersonFragment());
         fragments.add(new PersonFragment());
-        fragments.add(new PersonFragment());
+        fragments.add(new NewsFragment());
         fragments.add(new PersonFragment());
         fragments.add(new PersonFragment());
 
