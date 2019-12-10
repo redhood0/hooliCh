@@ -22,6 +22,8 @@
         <activity android:name=".ForgetPwdActivity" android:launchMode="singleTop"/>
         <activity android:name=".RegisterActivity" android:launchMode="singleTop"/>
         <activity android:name=".WebViewActivity" android:launchMode="singleTop"/>
+
+
     </application>
 
 </manifest>

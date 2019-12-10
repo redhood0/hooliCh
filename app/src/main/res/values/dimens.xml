@@ -4,11 +4,11 @@
 <!--    <dimen name="design_bottom_navigation_active_text_size">10dp</dimen>-->
 <!--    <dimen name="design_bottom_navigation_text_size">10dp</dimen>-->
 <!--    <dimen name="fixed_width_padding">2dp</dimen>-->
-    <dimen tools:override="true" name="design_bottom_navigation_margin">3dp</dimen>
+    <dimen tools:override="true" name="design_bottom_navigation_margin">8dp</dimen>
     <!-- 导航栏高度 -->
 <!--    <dimen tools:override="true" name="design_bottom_navigation_height">70dp</dimen>-->
     <!-- text大小 -->
-    <dimen tools:override="true" name="design_bottom_navigation_text_size">26sp</dimen>
+    <dimen tools:override="true" name="design_bottom_navigation_text_size">12sp</dimen>
     <!-- text大小 -->
-    <dimen tools:override="true" name="design_bottom_navigation_active_text_size">26sp</dimen>
+    <dimen tools:override="true" name="design_bottom_navigation_active_text_size">12sp</dimen>
 </resources>
