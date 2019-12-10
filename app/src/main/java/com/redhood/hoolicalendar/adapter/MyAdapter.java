@@ -20,6 +20,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             R.mipmap.ic_my_blog,R.mipmap.ic_my_blacklist,R.mipmap.ic_my_question,
             R.mipmap.ic_my_publish,R.mipmap.ic_my_event,R.mipmap.ic_my_tags,R.mipmap.ic_my_recommend};
     private String[] tvs = {"我的消息","我的勋章","阅读记录","我的博客","我的灰名单","我的问答","我的投递","我的活动","关注标签","邀请好友"};
+    private OnItemClickListener onItemClickListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     @NonNull
     @Override
@@ -34,6 +39,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.iv_left.setImageResource(imgs[position]);
         holder.tv_my.setText(tvs[position]);
         holder.iv_arrow.setImageResource(R.mipmap.ic_arrow_right);
+
+        holder.itemView.setOnClickListener(v->{
+            if (onItemClickListener!=null)
+                onItemClickListener.onItemClick(v,position);
+        });
+
+
 
     }
 
@@ -51,5 +63,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             iv_arrow  = itemView.findViewById(R.id.iv_arrow);
             tv_my  = itemView.findViewById(R.id.tv_my);
         }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position);
     }
 }
