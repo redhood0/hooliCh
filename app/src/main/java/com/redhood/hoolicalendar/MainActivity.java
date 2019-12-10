@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //        Toolbar myToolbar = findViewById(R.id.my_toolbar);
 //        setSupportActionBar(myToolbar);
         //设置底部导航
-
+//sss
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setItemIconSize(70);
