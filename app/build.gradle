@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -39,4 +43,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'me.zhyd.oauth:JustAuth:1.13.1'
 }
