@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 //sss
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-        bottomNav.setItemIconSize(70);
+        bottomNav.setItemIconSize(60);
 
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNav.getChildAt(0);
         menuView.scrollBy(0,-4);
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 //        bottomNav.setText
         ImageView imageView = menuView.getChildAt(2).findViewById(com.google.android.material.R.id.icon);
 //        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(80,80);
-        imageView.getLayoutParams().width = 120;
-        imageView.getLayoutParams().height = 120;
+        imageView.getLayoutParams().width = 110;
+        imageView.getLayoutParams().height = 110;
         imageView.scrollBy(0,0);
 
 //设置模式
