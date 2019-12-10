@@ -38,6 +38,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemIconTint="@drawable/color_state_menu_navi"
         app:itemTextColor="@drawable/color_state_menu_navi"
+        app:itemBackground="@null"
+        app:itemHorizontalTranslationEnabled="false"
+        android:textAlignment="center"
+
         ></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

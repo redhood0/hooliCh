@@ -39,16 +39,21 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setItemIconSize(70);
+
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNav.getChildAt(0);
-        menuView.scrollBy(0,10);
+        menuView.scrollBy(0,-4);
+//        bottomNav.getMenu().findItem(R.id.navigation_add).setIcon(R.mipmap.add_icon);
+        bottomNav.setItemIconTintList(null);
+//        bottomNav.setText
         ImageView imageView = menuView.getChildAt(2).findViewById(com.google.android.material.R.id.icon);
 //        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(80,80);
-        imageView.getLayoutParams().width = 140;
-        imageView.getLayoutParams().height = 140;
-        imageView.scrollBy(0,8);
+        imageView.getLayoutParams().width = 120;
+        imageView.getLayoutParams().height = 120;
+        imageView.scrollBy(0,0);
 
 //设置模式
         bottomNav.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_container);
         NavigationUI.setupWithNavController(bottomNav, navController);
 

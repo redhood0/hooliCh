@@ -19,12 +19,12 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/home_icon"
         android:title="综合" />
 
     <item
         android:id="@+id/navigation_dynamic"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/tweet_icon"
         android:title="动态" />
 
     <item
@@ -33,10 +33,10 @@
         android:title="" />
     <item
         android:id="@+id/navigation_find"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/discover_icon"
         android:title="发现" />
     <item
         android:id="@+id/navigation_person"
-        android:icon="@mipmap/ic_nav_my_normal"
+        android:icon="@drawable/my_icon"
         android:title="我的" />
 </menu>

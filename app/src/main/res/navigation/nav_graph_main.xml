@@ -12,15 +12,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_add"
+        android:id="@+id/navigation_dynamic"
         android:name="com.redhood.hoolicalendar.fragment.DynamicFragment"
         android:label="Dynamic"
         tools:layout="@layout/fragment_dynamic" />
+
     <fragment
         android:id="@+id/navigation_find"
         android:name="com.redhood.hoolicalendar.fragment.DynamicFragment"
         android:label="Dynamic"
         tools:layout="@layout/fragment_dynamic" />
+
     <fragment
         android:id="@+id/navigation_person"
         android:name="com.redhood.hoolicalendar.fragment.PersonFragment"
