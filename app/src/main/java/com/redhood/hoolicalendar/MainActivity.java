@@ -1,9 +1,9 @@
 package com.redhood.hoolicalendar;
 
 
-
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         initCompent();
-
     }
 
     private void initCompent() {
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setItemIconSize(70);
 
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNav.getChildAt(0);
-        menuView.scrollBy(0,-4);
+        menuView.scrollBy(0, -4);
 //        bottomNav.getMenu().findItem(R.id.navigation_add).setIcon(R.mipmap.add_icon);
         bottomNav.setItemIconTintList(null);
 //        bottomNav.setText
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(80,80);
         imageView.getLayoutParams().width = 120;
         imageView.getLayoutParams().height = 120;
-        imageView.scrollBy(0,0);
+        imageView.scrollBy(0, 0);
 
 //设置模式
         bottomNav.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
