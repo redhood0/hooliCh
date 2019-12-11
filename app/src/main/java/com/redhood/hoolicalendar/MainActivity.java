@@ -3,10 +3,15 @@ package com.redhood.hoolicalendar;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+import com.alibaba.fastjson.JSON;
+import com.android.volley.Request;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
@@ -19,7 +24,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         initCompent();
-        //sssss
     }
 
     private void initCompent() {
@@ -56,4 +63,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
 
     }
+
+
+
 }
