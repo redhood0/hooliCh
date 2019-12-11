@@ -1,6 +1,7 @@
 package com.redhood.hoolicalendar.fragment;
 
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,13 @@ public class NewsFragment extends Fragment {
         List<String> strs = new ArrayList<>();
         strs.add("1");
         strs.add("2");
+        strs.add("3");
+        strs.add("4");
+        strs.add("4");
+        strs.add("4");
+        strs.add("4");
+        strs.add("4");
+
         recyclerView.setAdapter(new NewsRecyclerViewAdapter(strs));
 
 
