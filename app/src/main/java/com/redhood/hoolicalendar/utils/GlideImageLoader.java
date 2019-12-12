@@ -1,4 +1,4 @@
-package com.redhood.hoolicalendar.util;
+package com.redhood.hoolicalendar.utils;
 
 import android.content.Context;
 import android.media.Image;

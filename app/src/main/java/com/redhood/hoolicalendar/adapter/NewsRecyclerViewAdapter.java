@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -16,15 +15,18 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.redhood.hoolicalendar.R;
+import com.redhood.hoolicalendar.bean.MyInformation;
+import com.redhood.hoolicalendar.bean.NewsList;
+import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.ui.VerticalCenterImageSpan;
-import com.redhood.hoolicalendar.util.GlideImageLoader;
+import com.redhood.hoolicalendar.utils.GlideImageLoader;
+import com.redhood.hoolicalendar.utils.HttpRequest;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -32,15 +34,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.solver.widgets.Rectangle;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<String> news = new ArrayList<>();
+    List<NewsList.NewslistBean> news;
     Context context;
     private int ITEM_HEADER = 1, ITEM_CONTENT = 2, ITEM_FOOTER = 3;
 
-    public NewsRecyclerViewAdapter(List<String> news) {
+    public NewsRecyclerViewAdapter(List<NewsList.NewslistBean> news) {
         this.news = news;
     }
 
@@ -108,8 +109,14 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             ImageSpan imgSpan = new VerticalCenterImageSpan(newDrawable);
 
             spString.setSpan(imgSpan, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            vh.tv_news_title.setText(spString);
+
+            vh.tv_news_title.setText(news.get(position).getTitle());
+            //todo  设置内容
+//            vh.tv_content.setText();
+
 //            vh.tv_news_title.setCompoundDrawablePadding(40);
+
+
         }
     }
 
@@ -127,6 +134,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
     }
 
+
     private static class HeadViewHolder extends RecyclerView.ViewHolder {
         Banner testBanner;
 
@@ -137,11 +145,13 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     private static class NewsItemViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_news_title;
+        TextView tv_news_title,tv_content,tv_author;
 
         public NewsItemViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_news_title = itemView.findViewById(R.id.tv_news_title);
+            tv_content = itemView.findViewById(R.id.tv_content);
+            tv_author = itemView.findViewById(R.id.tv_author);
         }
     }
 

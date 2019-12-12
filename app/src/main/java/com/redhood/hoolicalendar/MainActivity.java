@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.redhood.hoolicalendar.fragment.PersonFragment;
+import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+//        new ImmersiveStatusBarSettings().settingStatusBar(this);
 
         initCompent();
     }

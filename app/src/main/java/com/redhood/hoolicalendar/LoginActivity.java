@@ -25,6 +25,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
+
 /**
  * @author cky
  * date 2019-12-10
@@ -55,6 +57,7 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        new ImmersiveStatusBarSettings().settingStatusBar(this);
         initView();
     }
 

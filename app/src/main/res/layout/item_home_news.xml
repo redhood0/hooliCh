@@ -48,7 +48,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="16dp"
-        android:text="dylanSb"
+        android:text="redhoodSb"
         android:textColor="#B4B4B4"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/view_underline"
