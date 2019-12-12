@@ -15,11 +15,13 @@ import com.android.volley.Request;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.redhood.hoolicalendar.fragment.PersonFragment;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -27,7 +29,8 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    BottomNavigationView bottomNav;
+    NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //        Toolbar myToolbar = findViewById(R.id.my_toolbar);
 //        setSupportActionBar(myToolbar);
         //设置底部导航
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+         bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setItemIconSize(60);
 
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNav.getChildAt(0);
@@ -59,11 +62,17 @@ public class MainActivity extends AppCompatActivity {
 //设置模式
         bottomNav.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_container);
+        navController = Navigation.findNavController(this, R.id.nav_host_container);
         NavigationUI.setupWithNavController(bottomNav, navController);
 
     }
 
-
-
+    /**
+     * 清空 PersonFragment.myInformation缓存
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PersonFragment.myInformation = null;
+    }
 }

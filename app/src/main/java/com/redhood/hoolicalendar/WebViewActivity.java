@@ -20,10 +20,11 @@ import me.zhyd.oauth.model.AuthUser;
 import me.zhyd.oauth.request.AuthOschinaRequest;
 
 
-public class WebViewActivity extends AppCompatActivity{
+public class WebViewActivity extends AppCompatActivity {
     private WebView webView;
     private String code;
     private String state;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
