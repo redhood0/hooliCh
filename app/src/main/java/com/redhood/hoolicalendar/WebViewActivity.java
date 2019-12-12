@@ -2,17 +2,25 @@ package com.redhood.hoolicalendar;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.ValueCallback;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.fastjson.JSON;
 import com.redhood.hoolicalendar.utils.ACache;
 
+import java.io.IOException;
+
+import androidx.core.view.ViewCompat;
 import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.model.AuthCallback;
 import me.zhyd.oauth.model.AuthResponse;
@@ -45,9 +53,23 @@ public class WebViewActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 webView.setWebViewClient(new WebViewClient() {
 
-//                            @Override
-//                            public void onPageFinished(WebView view,
-//                                                       String url) {
+//                    @Nullable
+//                    @Override
+//                    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+//                            try {
+//                                Log.i("TAG***", "加载本地jquery.js");
+//                                return new WebResourceResponse("application/x-javascript",
+//                                        "utf-8", getAssets().open("js/login.js"));
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                                Log.i("TAG", "加载本地js错误："+e.toString());
+//                            }
+//                        return super.shouldInterceptRequest(view, request);
+//                    }
+
+                    @Override
+                            public void onPageFinished(WebView view,
+                                                       String url) {
 //                                super.onPageFinished(view, url);
 //                                if (url.equals(url1)) {
 //                                    String js = "javascript:document" +
@@ -71,7 +93,21 @@ public class WebViewActivity extends AppCompatActivity {
 //                                                }
 //                                            });
 //                                }
-//                            }
+
+//                              webView.loadUrl("file:///android_asset/js/login.html");
+
+                                webView.evaluateJavascript("javascript:if(document.getElementById('f_email') != null){" +
+                                        "document.getElementById('f_email').value= '15906288611';" +
+                                        "document.getElementById('f_pwd').value= 'z159q357';" +
+                                        "}" +
+                                        "document.getElementsByName('authorize')[0].click();", new ValueCallback<String>() {
+                                    @Override
+                                    public void onReceiveValue(String value) {
+                                        //此处为 js 返回的结果
+                                        Log.e("callback", "onReceiveValue: "+value );
+                                    }
+                                });
+                            }
 
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -107,16 +143,21 @@ public class WebViewActivity extends AppCompatActivity {
 
                 // WebView的设置参数类
                 WebSettings webSettings = webView.getSettings();
+
                 // 让WebView能够执行javaScript
                 webSettings.setJavaScriptEnabled(true);
+                // 设置允许JS弹窗
+                webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+                webView.setAlpha(1f);
+//                webView.setVisibility(View.INVISIBLE);
                 // 通过Webiew记载授权界面
                 webView.loadUrl(url1);
-
-
             });
         }).start();
 
     }
+
+
 
 
 }
