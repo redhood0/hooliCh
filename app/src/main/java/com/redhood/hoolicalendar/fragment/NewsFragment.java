@@ -45,7 +45,6 @@ public class NewsFragment extends Fragment {
 
         recyclerView.setAdapter(new NewsRecyclerViewAdapter(strs));
 
-
         return v;
     }
 }

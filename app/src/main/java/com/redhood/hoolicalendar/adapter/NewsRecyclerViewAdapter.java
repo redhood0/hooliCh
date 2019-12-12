@@ -1,12 +1,22 @@
 package com.redhood.hoolicalendar.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.solver.widgets.Rectangle;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -78,11 +89,27 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         } else {
             NewsItemViewHolder vh = (NewsItemViewHolder) holder;
             SpannableString spString = new SpannableString(" 准备买个全面屏手机，求大家推荐一下11111111111111111");
-            Drawable drawable = context.getDrawable(R.mipmap.ic_label_today);
-            drawable.setBounds(0, 0, 44, 50);
-            ImageSpan imgSpan = new VerticalCenterImageSpan(drawable);
+
+            //bitmap缩放
+            Bitmap little_icon = BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_label_today);
+            Matrix matrix = new Matrix();
+            matrix.postScale(1f,1f);
+            Bitmap resize_icon = Bitmap.createBitmap(little_icon,0,0,little_icon.getWidth(),little_icon.getHeight(),matrix,true);
+
+            Canvas canvas = new Canvas();
+            Paint paint = new Paint();
+            paint.setColor(Color.BLUE);
+            Bitmap bg = Bitmap.createBitmap(70,70,Bitmap.Config.ARGB_8888);
+            canvas.setBitmap(bg);
+
+            canvas.drawBitmap(resize_icon,0,4,null);
+            Drawable newDrawable = new BitmapDrawable(context.getResources(),bg);
+            newDrawable.setBounds(0,0,70,70);
+            ImageSpan imgSpan = new VerticalCenterImageSpan(newDrawable);
+
             spString.setSpan(imgSpan, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             vh.tv_news_title.setText(spString);
+//            vh.tv_news_title.setCompoundDrawablePadding(40);
         }
     }
 
@@ -98,7 +125,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         }else {
             return ITEM_CONTENT;
         }
-
     }
 
     private static class HeadViewHolder extends RecyclerView.ViewHolder {
@@ -116,8 +142,30 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         public NewsItemViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_news_title = itemView.findViewById(R.id.tv_news_title);
-
         }
+    }
+
+    /**
+     * 将Drawable转换为Bitmap
+     * @param drawable
+     * @return
+     */
+    private Bitmap drawableToBitmap(Drawable drawable) {
+        //取drawable的宽高
+        int width = drawable.getIntrinsicWidth();
+        int height = drawable.getIntrinsicHeight();
+        //取drawable的颜色格式
+        Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE
+                ? Bitmap.Config.ARGB_8888
+                : Bitmap.Config.RGB_565;
+        //创建对应的bitmap
+        Bitmap bitmap = Bitmap.createBitmap(width, height, config);
+        //创建对应的bitmap的画布
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, width, height);
+        //把drawable内容画到画布中
+        drawable.draw(canvas);
+        return bitmap;
     }
 
 
