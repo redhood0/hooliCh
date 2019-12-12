@@ -18,9 +18,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.fastjson.JSON;
-import com.redhood.hoolicalendar.util.CallBackForUser;
-import com.redhood.hoolicalendar.util.LoginAccessUtil;
+
 import com.redhood.hoolicalendar.utils.ACache;
+import com.redhood.hoolicalendar.utils.CallBackForUser;
+import com.redhood.hoolicalendar.utils.LoginAccessUtil;
 
 import java.io.IOException;
 
@@ -237,7 +238,7 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         return null;
     }
 
-
+//这里使用user
     @Override
     public void getUserMsg(String userJson) {
         Log.e("ssss", "getUserMsg: "+userJson );
