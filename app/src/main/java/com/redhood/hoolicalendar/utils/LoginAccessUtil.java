@@ -1,4 +1,4 @@
-package com.redhood.hoolicalendar.util;
+package com.redhood.hoolicalendar.utils;
 
 import android.app.Activity;
 import android.net.Uri;

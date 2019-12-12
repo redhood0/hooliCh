@@ -1,4 +1,4 @@
-package com.redhood.hoolicalendar.util;
+package com.redhood.hoolicalendar.utils;
 
 public interface CallBackForUser {
     void getUserMsg(String userJson);
