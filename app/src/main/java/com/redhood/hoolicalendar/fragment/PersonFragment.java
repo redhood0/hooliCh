@@ -9,13 +9,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.redhood.hoolicalendar.LoginActivity;
+import com.redhood.hoolicalendar.MyMessageActivity;
 import com.redhood.hoolicalendar.R;
+import com.redhood.hoolicalendar.SettingActivity;
 import com.redhood.hoolicalendar.WebViewActivity;
 import com.redhood.hoolicalendar.adapter.MyAdapter;
 import com.redhood.hoolicalendar.bean.MyInformation;
@@ -26,8 +29,10 @@ import com.redhood.hoolicalendar.utils.HttpRequest;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.FragmentTransitionSupport;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,10 +43,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     RecyclerView rv_my;
     CircleImageView cv_head;
     TextView tv_name;
-    ImageView iv_setting;
+    FrameLayout fl_setting,fl_grcode;
     public static MyInformation myInformation;
-    String user;
-    HttpRequest httpRequest;
+    public static String user;
 
     private static final String MYINFORMATIONURL = "https://www.oschina.net/action/openapi/my_information?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
 
@@ -63,24 +67,21 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         rv_my = view.findViewById(R.id.rv_my);
         cv_head = view.findViewById(R.id.cv_head);
         tv_name = view.findViewById(R.id.tv_name);
-        iv_setting = view.findViewById(R.id.iv_setting);
+        fl_setting = view.findViewById(R.id.fl_setting);
+        fl_grcode = view.findViewById(R.id.fl_grcode);
         cv_head.setOnClickListener(this);
-        iv_setting.setOnClickListener(this);
+        fl_setting.setOnClickListener(this);
 
         user = ACache.get(getActivity()).getAsString("user");
-
             Log.d("user",ACache.get(getActivity()).getAsString("user")+"");
-
-
         if (myInformation == null && user != null) {
             new HttpRequest(getContext(), this).getRequest(MYINFORMATIONURL, MyInformation.class);
         }
-
         if (myInformation != null){
             Glide.with(getContext()).load(myInformation.getPortrait()).into(cv_head);
             tv_name.setText(myInformation.getName());
-
         }
+
     }
 
     private void setAdapter() {
@@ -118,16 +119,20 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
                 if (myInformation==null) startActivity(new Intent(getActivity(), LoginActivity.class));
                 else showDialog();
                 break;
-            case R.id.iv_setting:
-                ACache.get(getActivity()).remove("user");
-                myInformation = null;
+            case R.id.fl_setting:
+                startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
         }
     }
 
     @Override
     public void onItemClick(View v, int position) {
-        Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
+        switch (position){
+            case 0:
+                startActivity(new Intent(getActivity(), MyMessageActivity.class));
+                break;
+
+        }
     }
 
 
@@ -140,6 +145,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     @Override
     public void onResume() {
         super.onResume();
+        if (myInformation == null){
+            cv_head.setImageResource(R.mipmap.widget_default_face);
+            tv_name.setText("点击头像登录");
+        }
         if (user == null)
         user = ACache.get(getActivity()).getAsString("user");
         if (myInformation == null && user != null) {

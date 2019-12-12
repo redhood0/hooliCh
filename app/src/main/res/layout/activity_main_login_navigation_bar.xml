@@ -12,8 +12,8 @@
         android:id="@+id/ib_navigation_back"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/bg_login_navigation_bar"
         android:contentDescription="@null"
         app:srcCompat="@mipmap/ic_brows_back" />
