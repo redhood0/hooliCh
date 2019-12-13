@@ -1,8 +1,6 @@
 package com.redhood.hoolicalendar.fragment;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +26,8 @@ import com.redhood.hoolicalendar.utils.HttpRequest;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.FragmentTransitionSupport;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -43,12 +35,12 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     RecyclerView rv_my;
     CircleImageView cv_head;
     TextView tv_name;
-    FrameLayout fl_setting,fl_grcode;
+    FrameLayout fl_setting, fl_grcode;
     public static MyInformation myInformation;
     public static String user;
 
-    private static final String MYINFORMATIONURL = "https://www.oschina.net/action/openapi/my_information?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
-
+    public static String myinformationurl = "https://www.oschina.net/action/openapi/my_information?access_token=";
+    private final String ORIGINURL = "https://www.oschina.net/action/openapi/my_information?access_token=";
 
 
     @Override
@@ -72,12 +64,20 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         cv_head.setOnClickListener(this);
         fl_setting.setOnClickListener(this);
 
-        user = ACache.get(getActivity()).getAsString("user");
-            Log.d("user",ACache.get(getActivity()).getAsString("user")+"");
-        if (myInformation == null && user != null) {
-            new HttpRequest(getContext(), this).getRequest(MYINFORMATIONURL, MyInformation.class);
+
+        String url = ACache.get(getActivity()).getAsString("url")+"";
+//        myinformationurl = url;
+        Log.w("url",url);
+        if (!url.equals("null")){
+            myinformationurl = url;
         }
-        if (myInformation != null){
+
+        user = ACache.get(getActivity()).getAsString("user");
+        Log.d("user", ACache.get(getActivity()).getAsString("user") + "");
+        if (myInformation == null && user != null&&!myinformationurl.equals(ORIGINURL)) {
+            new HttpRequest(getContext(), this).getRequest(myinformationurl, MyInformation.class);
+        }
+        if (myInformation != null) {
             Glide.with(getContext()).load(myInformation.getPortrait()).into(cv_head);
             tv_name.setText(myInformation.getName());
         }
@@ -93,15 +93,15 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     }
 
     //todo 更换头像、查看大头像
-    private void showDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext()).setTitle("选择操作").setItems(new String[]{"更换头像","查看大头像"}, (dialogInterface, i) -> {
-            switch (i){
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext()).setTitle("选择操作").setItems(new String[]{"更换头像", "查看大头像"}, (dialogInterface, i) -> {
+            switch (i) {
                 case 0:
-                    Toast.makeText(getContext(), ""+0, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "" + 0, Toast.LENGTH_SHORT).show();
 
                     break;
                 case 1:
-                    Toast.makeText(getContext(), ""+1, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "" + 1, Toast.LENGTH_SHORT).show();
 
                     break;
 
@@ -116,7 +116,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.cv_head:
-                if (myInformation==null) startActivity(new Intent(getActivity(), LoginActivity.class));
+                if (myInformation == null)
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 else showDialog();
                 break;
             case R.id.fl_setting:
@@ -127,7 +128,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
 
     @Override
     public void onItemClick(View v, int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 startActivity(new Intent(getActivity(), MyMessageActivity.class));
                 break;
@@ -145,18 +146,26 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     @Override
     public void onResume() {
         super.onResume();
-        if (myInformation == null){
+        if (WebViewActivity.token == null){
+            myinformationurl += "";
+        } else if (myinformationurl.length()<=68){
+            myinformationurl += WebViewActivity.token;
+            ACache.get(getActivity()).put("url",myinformationurl);
+            Log.e("myinformationurl",myinformationurl);
+        }
+
+        if (myInformation == null) {
             cv_head.setImageResource(R.mipmap.widget_default_face);
             tv_name.setText("点击头像登录");
         }
         if (user == null)
-        user = ACache.get(getActivity()).getAsString("user");
+            user = ACache.get(getActivity()).getAsString("user");
         if (myInformation == null && user != null) {
             new HttpRequest(getContext(), bean -> {
                 myInformation = (MyInformation) bean;
                 Glide.with(getContext()).load(myInformation.getPortrait()).into(cv_head);
                 tv_name.setText(myInformation.getName());
-            }).getRequest(MYINFORMATIONURL, MyInformation.class);
+            }).getRequest(myinformationurl, MyInformation.class);
         }
     }
 

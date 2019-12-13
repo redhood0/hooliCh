@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.fastjson.JSON;
 
+import com.redhood.hoolicalendar.bean.Oauth2Token;
 import com.redhood.hoolicalendar.utils.ACache;
 import com.redhood.hoolicalendar.utils.CallBackForUser;
 import com.redhood.hoolicalendar.utils.LoginAccessUtil;
@@ -26,6 +27,7 @@ import com.redhood.hoolicalendar.utils.LoginAccessUtil;
 import java.io.IOException;
 
 import androidx.core.view.ViewCompat;
+
 import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.model.AuthCallback;
 import me.zhyd.oauth.model.AuthResponse;
@@ -37,6 +39,7 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
     private WebView webView;
     private String code;
     private String state;
+    public static String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +47,23 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         setContentView(R.layout.activity_web_view);
         webView = findViewById(R.id.web_view);
 //
-        LoginAccessUtil.login(this,"15906288611","z159q357","wvNfVJCvSKXPT2SCrsCG","EM4JUtta9ykQxny0kHHBxjTwntjflWe8","https://www.baidu.com/");
+        LoginAccessUtil.login(this, "15906288611", "z159q357", "wvNfVJCvSKXPT2SCrsCG", "EM4JUtta9ykQxny0kHHBxjTwntjflWe8", "https://www.baidu.com/");
     }
 
-//这里使用user
+    //这里使用user
     @Override
     public void getUserMsg(String userJson) {
-        Log.e("ssss", "getUserMsg: "+userJson );
+        Log.e("ssss", "getUserMsg: " + userJson);
+        ACache.get(this.getApplicationContext()).put("user", userJson);
+        ACache.get(this.getApplicationContext()).put("login", "true");
+        Oauth2Token oauth2Token = JSON.parseObject(userJson, Oauth2Token.class);
+        token = oauth2Token.getToken().getAccessToken();
+        ACache.get(this.getApplicationContext()).put("token", token);
+        Log.e("token",token+">>>>>"+ACache.get(this).getAsString("token"));
+        if (!token.equals(ACache.get(this).getAsString("token"))){
+            ACache.get(this).remove("token");
+            ACache.get(this.getApplicationContext()).put("token", token);
+        }
+        Log.d("111111112222",token+"");
     }
 }

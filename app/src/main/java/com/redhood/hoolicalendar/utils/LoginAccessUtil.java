@@ -78,8 +78,8 @@ public class LoginAccessUtil {
                                 Log.e("....", "shouldOverrideUrlLoading: "+ userString );
                                 activity.runOnUiThread(() -> {
 //                                    String userString = JSON.toJSON(user).toString();
-//                                    ACache.get(activity.getApplicationContext()).put("user", userString);
-//                                    ACache.get(activity.getApplicationContext()).put("login", "true");
+//                                    Cache.get(activity.getApplicationContext()).put("user", userString);
+////                                    ACache.get(activity.getApplicationContext()).put("login", "true");A
                                     activity.setResult(998);
                                     activity.finish();
                                 });

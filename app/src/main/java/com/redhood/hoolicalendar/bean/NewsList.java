@@ -10,9 +10,8 @@ public class NewsList {
 
 
     /**
-     * newslist : [{"author":"微众开源","id":111999,"title":"DataSphere Studio 0.60 版本发布","type":4,"authorid":3334446,"pubDate":"2019-12-11 09:21:34","commentCount":0},{"author":"局长","id":111998,"title":"微软将主办首场 Linux 会议 WSLConf，Ubuntu 提供支持","type":4,"authorid":2720166,"pubDate":"2019-12-11 08:28:15","commentCount":15},{"author":"xplanet","id":111997,"title":"Python 获 Mozilla 和扎克伯格夫妇 40 余万美金资助","type":4,"authorid":4105562,"pubDate":"2019-12-11 08:24:48","commentCount":7},{"author":"白开水不加糖","id":111996,"title":"Canonical 为受支持的 Raspberry Pi 开发板发布了新的 Ubuntu 镜像","type":4,"authorid":4252687,"pubDate":"2019-12-11 08:24:01","commentCount":16},{"author":"xplanet","id":111995,"title":"Chrome 浏览器新功能：电脑复制，手机粘贴","type":4,"authorid":4105562,"pubDate":"2019-12-11 08:22:54","commentCount":9},{"author":"oschina","id":111994,"title":"每日一博 | 一篇文章让你明白 CPU 缓存一致性协议 MESI","type":3,"authorid":1,"pubDate":"2019-12-11 08:21:15","commentCount":5,"object":3137582},{"author":"oschina","id":111993,"title":"G2Plot \u2014\u2014 开箱即用的图表库","type":1,"authorid":1,"pubDate":"2019-12-11 08:17:43","object":50138,"commentCount":0},{"author":"oschina","id":111992,"title":"码云推荐 | 来自国信证券的 Java 微服务框架 Zebra","type":0,"authorid":1,"pubDate":"2019-12-11 07:32:59","url":"https://gitee.com/gszebra/zebra","object":0,"commentCount":0},{"author":"局长","id":111991,"title":"CKEditor 5 v16.0.0 发布，支持插入代码块和增加受限编辑功能","type":4,"authorid":2720166,"pubDate":"2019-12-11 07:28:34","commentCount":5},{"author":"xplanet","id":111990,"title":"Spring Cloud Data Flow 2.3.0 GA 发布","type":4,"authorid":4105562,"pubDate":"2019-12-11 07:27:30","commentCount":0},{"author":"白开水不加糖","id":111989,"title":"Linux kernel 5.5-rc1 发布","type":4,"authorid":4252687,"pubDate":"2019-12-11 07:26:41","commentCount":1},{"author":"xplanet","id":111988,"title":"Vulkan 1.1.130 发布，图形 API 规范","type":4,"authorid":4105562,"pubDate":"2019-12-11 07:25:56","commentCount":0},{"author":"白开水不加糖","id":111987,"title":"Traefik 2.0.7 发布，HTTP 反向代理与负载均衡工具","type":4,"authorid":4252687,"pubDate":"2019-12-11 07:25:17","commentCount":5},{"author":"白开水不加糖","id":111986,"title":"图像编辑器 GIMP 2.10.14.1 发布","type":4,"authorid":4252687,"pubDate":"2019-12-11 07:24:27","commentCount":4},{"author":"xplanet","id":111985,"title":"PostgreSQL JDBC 42.2.9 发布","type":4,"authorid":4105562,"pubDate":"2019-12-11 07:23:43","commentCount":6},{"author":"xplanet","id":111984,"title":"Emulator 29.2.12 稳定版发布，启用 Google Maps UI","type":4,"authorid":4105562,"pubDate":"2019-12-11 07:22:33","commentCount":1},{"author":"kokjuis","id":111982,"title":"getty 发布，一个完全基于 java 实现的 aio 框架","type":4,"authorid":2276021,"pubDate":"2019-12-10 17:44:24","commentCount":4},{"author":"metinfo666","id":111979,"title":"米拓企业建站系统 V7.0.0，开源免费，支持 10 合 1 建站","type":4,"authorid":4189863,"pubDate":"2019-12-10 13:51:05","commentCount":18},{"author":"ldh_123","id":111977,"title":"Auto Maker 1.0.5 版本发布， 强大的 spring cloud oauth 脚手架","type":4,"authorid":1028496,"pubDate":"2019-12-10 11:38:42","commentCount":4},{"author":"依剑_听雨","id":111976,"title":"notadd-cli 1.0 发布，Typescript 生成 graphql 配置","type":4,"authorid":2352515,"pubDate":"2019-12-10 11:30:50","commentCount":4}]
+     * newslist : [{"author":"xplanet","id":112035,"title":"Dart 2.7 发布，新增扩展方法支持","type":4,"authorid":4105562,"pubDate":"2019-12-13 07:43:40","commentCount":0},{"author":"白开水不加糖","id":112034,"title":"Visual Studio 2019 for Mac 8.4 Preview 4 发布","type":4,"authorid":4252687,"pubDate":"2019-12-13 07:41:01","commentCount":1},{"author":"白开水不加糖","id":112033,"title":"VirtualBox 6.1.0 发布，开源虚拟机","type":4,"authorid":4252687,"pubDate":"2019-12-13 07:40:16","commentCount":1},{"author":"xplanet","id":112032,"title":"ReSharper Ultimate 2019.3 发布","type":4,"authorid":4105562,"pubDate":"2019-12-13 07:38:17","commentCount":1},{"author":"xplanet","id":112031,"title":"TensorFlow 2.1.0-rc1 发布","type":4,"authorid":4105562,"pubDate":"2019-12-13 07:37:16","commentCount":0},{"author":"白开水不加糖","id":112030,"title":"Traefik 2.1.0 发布，HTTP 反向代理与负载均衡工具","type":4,"authorid":4252687,"pubDate":"2019-12-13 07:36:36","commentCount":0},{"author":"xplanet","id":112029,"title":"SonarQube 7.9.2 LTS 发布，代码质量管理平台","type":4,"authorid":4105562,"pubDate":"2019-12-13 07:35:51","commentCount":0},{"author":"xplanet","id":112028,"title":"Ionic 5.0.0 beta.2 发布，混合移动应用前端框架","type":4,"authorid":4105562,"pubDate":"2019-12-13 07:34:04","commentCount":0},{"author":"huangzhhui","id":112026,"title":"Hyperf 发布 v1.1.10 版本，企业级的 PHP 微服务云原生协程框架","type":4,"authorid":4151378,"pubDate":"2019-12-12 17:26:45","commentCount":2},{"author":"冰力","id":112025,"title":"Hunt Redis 1.0.0 发布，D 语言 Redis 客户端","type":4,"authorid":118197,"pubDate":"2019-12-12 16:52:26","commentCount":8},{"author":"软践","id":112024,"title":"微信模块 Oejia_wx v0.6 发布，全面支持多 worker 运行模式及异步通知 ","type":4,"authorid":105889,"pubDate":"2019-12-12 15:11:03","commentCount":0},{"author":"漆工","id":112023,"title":"React UI 库 React Suite 4.1.4 版本更新","type":4,"authorid":556016,"pubDate":"2019-12-12 13:09:10","commentCount":2},{"author":"努力加贝","id":112022,"title":"xplay 1.0.7 发布，专为树莓派(RPI)与 Windows 系统设计的多媒体播放器","type":4,"authorid":2899602,"pubDate":"2019-12-12 11:55:30","commentCount":0},{"author":"MetInfo","id":112019,"title":"米拓小程序插件正式发布，免费，调用网站内容，支持微信、百度6端小程序","type":4,"authorid":659437,"pubDate":"2019-12-12 11:11:51","commentCount":0},{"author":"xplanet","id":112018,"title":"微软首款 Office 应用程序登陆 Linux","type":4,"authorid":4105562,"pubDate":"2019-12-12 08:38:31","commentCount":26},{"author":"局长","id":112017,"title":"Debian 正在投票是否支持非 systemd 初始化系统","type":4,"authorid":2720166,"pubDate":"2019-12-12 08:37:23","commentCount":15},{"author":"局长","id":112016,"title":"WireGuard 已被合并至 net-next，即将进入 Linux 5.6","type":4,"authorid":2720166,"pubDate":"2019-12-12 08:35:33","commentCount":13},{"author":"局长","id":112015,"title":"微软将中止支持 .NET Core 2.2，建议开发者升级至 .NET Core 3.1","type":4,"authorid":2720166,"pubDate":"2019-12-12 08:34:08","commentCount":6},{"author":"oschina","id":112014,"title":"每日一博 | 反应式架构(1)：基本概念介绍","type":3,"authorid":1,"pubDate":"2019-12-12 08:32:49","commentCount":15,"object":3141289},{"author":"oschina","id":112013,"title":"Lars \u2014\u2014 基于 C++ 负载均衡远程服务器调度系统","type":1,"authorid":1,"pubDate":"2019-12-12 08:27:19","object":50197,"commentCount":0}]
      * notice : {"referCount":0,"replyCount":0,"msgCount":0,"fansCount":0}
-     *
      */
 
     private NoticeBean notice;
@@ -36,10 +35,10 @@ public class NewsList {
 
     public static class NoticeBean {
         /**
-         * referCount : 0  未读@我数
-         * replyCount : 0  未读评论数
-         * msgCount : 0  未读私信数
-         * fansCount : 0  新增粉丝数
+         * referCount : 0
+         * replyCount : 0
+         * msgCount : 0
+         * fansCount : 0
          */
 
         private int referCount;
@@ -82,15 +81,14 @@ public class NewsList {
 
     public static class NewslistBean {
         /**
-         * author : 微众开源    投递者名称
-         * id : 111999  新闻id
-         * title : DataSphere Studio 0.60 版本发布      新闻标题
-         * type : 4     新闻类型 [0-链接新闻|1-软件推荐|2-讨论区帖子|3-博客|4-普通新闻|7-翻译文章]
-         * authorid : 3334446       	投递者编号
-         * pubDate : 2019-12-11 09:21:34        发布日期
-         * commentCount : 0  评论数
-         * object : 3137582
-         * url : https://gitee.com/gszebra/zebra
+         * author : xplanet
+         * id : 112035
+         * title : Dart 2.7 发布，新增扩展方法支持
+         * type : 4
+         * authorid : 4105562
+         * pubDate : 2019-12-13 07:43:40
+         * commentCount : 0
+         * object : 3141289
          */
 
         private String author;
@@ -101,7 +99,6 @@ public class NewsList {
         private String pubDate;
         private int commentCount;
         private int object;
-        private String url;
 
         public String getAuthor() {
             return author;
@@ -165,29 +162,6 @@ public class NewsList {
 
         public void setObject(int object) {
             this.object = object;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        @Override
-        public String toString() {
-            return "NewslistBean{" +
-                    "author='" + author + '\'' +
-                    ", id=" + id +
-                    ", title='" + title + '\'' +
-                    ", type=" + type +
-                    ", authorid=" + authorid +
-                    ", pubDate='" + pubDate + '\'' +
-                    ", commentCount=" + commentCount +
-                    ", object=" + object +
-                    ", url='" + url + '\'' +
-                    '}';
         }
     }
 }

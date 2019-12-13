@@ -43,6 +43,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                 ACache.get(this).remove("user");
                 PersonFragment.myInformation = null;
                 PersonFragment.user = null;
+                ACache.get(this).remove("url");
                 cl_logout.setVisibility(View.INVISIBLE);
                 break;
         }
