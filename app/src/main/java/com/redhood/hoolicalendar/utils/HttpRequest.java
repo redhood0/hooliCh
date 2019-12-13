@@ -15,6 +15,8 @@ import com.redhood.hoolicalendar.callback.BeanCallback;
  */
 public class HttpRequest {
     private static final String TAG = "HttpRequest";
+    public static String URL_PRE = "https://www.oschina.net/action";
+    public static String TOKEN ="?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
     private String newsListUrl = "https://www.oschina.net/action/openapi/news_list?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
     private String myInformationUrl = "https://www.oschina.net/action/openapi/my_information?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
 
@@ -29,7 +31,8 @@ public class HttpRequest {
 
     public void getRequest(String url, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest(url, response -> {
+        String fullUrl = URL_PRE + url + TOKEN;
+        StringRequest stringRequest = new StringRequest(fullUrl, response -> {
             Object o = JSON.parseObject(response, clazz);
             callback.processBeanRequest(o);
         }, error -> {
@@ -37,6 +40,7 @@ public class HttpRequest {
         });
         requestQueue.add(stringRequest);
     }
+    //todo:增加一个post请求的接口参数包含，url，输入json字符串，返回class
 
 
 }
