@@ -1,13 +1,17 @@
 package com.redhood.hoolicalendar.fragment;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ import com.redhood.hoolicalendar.utils.HttpRequest;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +43,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     FrameLayout fl_setting, fl_grcode;
     public static MyInformation myInformation;
     public static String user;
+    private  PopupWindow popupWindow;
 
     public static String myinformationurl = "https://www.oschina.net/action/openapi/my_information?access_token=";
     private final String ORIGINURL = "https://www.oschina.net/action/openapi/my_information?access_token=";
@@ -63,11 +69,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         fl_grcode = view.findViewById(R.id.fl_grcode);
         cv_head.setOnClickListener(this);
         fl_setting.setOnClickListener(this);
+        fl_grcode.setOnClickListener(this);
 
 
         String url = ACache.get(getActivity()).getAsString("url")+"";
-//        myinformationurl = url;
-        Log.w("url",url);
         if (!url.equals("null")){
             myinformationurl = url;
         }
@@ -92,17 +97,18 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         adapter.setOnItemClickListener(this);
     }
 
-    //todo 更换头像、查看大头像
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext()).setTitle("选择操作").setItems(new String[]{"更换头像", "查看大头像"}, (dialogInterface, i) -> {
             switch (i) {
                 case 0:
-                    Toast.makeText(getContext(), "" + 0, Toast.LENGTH_SHORT).show();
-
+                    this.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivity(intent);
                     break;
                 case 1:
                     Toast.makeText(getContext(), "" + 1, Toast.LENGTH_SHORT).show();
-
+                    showHeadImgWindow();
                     break;
 
             }
@@ -110,6 +116,44 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
 
         });
         builder.create().show();
+    }
+
+    private void showHeadImgWindow(){
+        showWindow();
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_show_pic,null,false);
+        ImageView imageView = view.findViewById(R.id.iv_head);
+        imageView.setVisibility(View.VISIBLE);
+        Glide.with(getActivity()).load(myInformation.getPortrait()).into(imageView);
+        popupWindow.setContentView(view);
+        popupWindow.showAsDropDown(cv_head);
+        view.setOnClickListener(v->{
+            popupWindow.dismiss();
+        });
+    }
+
+    private void showGRcodeWindow(){
+        showWindow();
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_show_pic,null,false);
+        ConstraintLayout cl_bg = view.findViewById(R.id.cl_bg);
+        ConstraintLayout cl_grcode = view.findViewById(R.id.cl_grcode);
+        cl_bg.setBackgroundColor(Color.parseColor("#919192"));
+        cl_grcode.setVisibility(View.VISIBLE);
+//        Glide.with(getActivity()).load(myInformation.getPortrait()).into(imageView);
+        popupWindow.setContentView(view);
+        popupWindow.showAsDropDown(cv_head);
+
+        view.setOnClickListener(v->{
+            popupWindow.dismiss();
+        });
+    }
+
+    private void showWindow(){
+        popupWindow = new PopupWindow();
+        popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+
     }
 
     @Override
@@ -122,6 +166,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
                 break;
             case R.id.fl_setting:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
+                break;
+            case R.id.fl_grcode:
+                showGRcodeWindow();
                 break;
         }
     }
@@ -151,7 +198,6 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         } else if (myinformationurl.length()<=68){
             myinformationurl += WebViewActivity.token;
             ACache.get(getActivity()).put("url",myinformationurl);
-            Log.e("myinformationurl",myinformationurl);
         }
 
         if (myInformation == null) {

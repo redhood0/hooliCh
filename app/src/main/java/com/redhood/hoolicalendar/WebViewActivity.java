@@ -59,11 +59,9 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         Oauth2Token oauth2Token = JSON.parseObject(userJson, Oauth2Token.class);
         token = oauth2Token.getToken().getAccessToken();
         ACache.get(this.getApplicationContext()).put("token", token);
-        Log.e("token",token+">>>>>"+ACache.get(this).getAsString("token"));
         if (!token.equals(ACache.get(this).getAsString("token"))){
             ACache.get(this).remove("token");
             ACache.get(this.getApplicationContext()).put("token", token);
         }
-        Log.d("111111112222",token+"");
     }
 }
