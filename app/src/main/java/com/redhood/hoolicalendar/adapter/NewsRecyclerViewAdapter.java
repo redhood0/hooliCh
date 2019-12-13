@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +90,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             testBanner.start();
         } else {
             NewsItemViewHolder vh = (NewsItemViewHolder) holder;
-            SpannableString spString = new SpannableString(" 准备买个全面屏手机，求大家推荐一下11111111111111111");
+            SpannableString spString = new SpannableString(" " + news.get(position).getTitle());
 
             //bitmap缩放
             Bitmap little_icon = BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_label_today);
@@ -98,8 +99,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             Bitmap resize_icon = Bitmap.createBitmap(little_icon,0,0,little_icon.getWidth(),little_icon.getHeight(),matrix,true);
 
             Canvas canvas = new Canvas();
-            Paint paint = new Paint();
-            paint.setColor(Color.BLUE);
             Bitmap bg = Bitmap.createBitmap(70,70,Bitmap.Config.ARGB_8888);
             canvas.setBitmap(bg);
 
@@ -110,8 +109,9 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
             spString.setSpan(imgSpan, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
-            vh.tv_news_title.setText(news.get(position).getTitle());
+            vh.tv_news_title.setText(spString);
             //todo  设置内容
+            vh.tv_author.setText(news.get(position).getAuthor());
 //            vh.tv_content.setText();
 
 //            vh.tv_news_title.setCompoundDrawablePadding(40);
