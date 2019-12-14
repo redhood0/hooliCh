@@ -1,11 +1,13 @@
 package com.redhood.hoolicalendar.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.redhood.hoolicalendar.NewsListDetailActivity;
 import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.adapter.NewsRecyclerViewAdapter;
 import com.redhood.hoolicalendar.bean.MyInformation;
@@ -22,7 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class NewsFragment extends Fragment implements BeanCallback {
+public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerViewAdapter.Callback{
 
     RecyclerView recyclerView;
     private final static String NEWSLISTURL = "https://www.oschina.net/action/openapi/news_list?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
@@ -51,5 +53,13 @@ public class NewsFragment extends Fragment implements BeanCallback {
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onItemClick(View v, int position) {
+        Intent intent = new Intent(getActivity(), NewsListDetailActivity.class);
+        int newsId = list.get(position).getId();
+        intent.putExtra("newId",newsId);
+        startActivity(intent);
     }
 }

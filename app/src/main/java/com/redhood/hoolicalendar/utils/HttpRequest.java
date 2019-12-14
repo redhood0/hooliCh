@@ -40,6 +40,17 @@ public class HttpRequest {
         });
         requestQueue.add(stringRequest);
     }
+
+    public void getInfoRequest(String url, Class clazz) {
+        requestQueue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest(url, response -> {
+            Object o = JSON.parseObject(response, clazz);
+            callback.processBeanRequest(o);
+        }, error -> {
+            Log.e(TAG, error.getMessage(), error);
+        });
+        requestQueue.add(stringRequest);
+    }
     //todo:增加一个post请求的接口参数包含，url，输入json字符串，返回class
 
 
