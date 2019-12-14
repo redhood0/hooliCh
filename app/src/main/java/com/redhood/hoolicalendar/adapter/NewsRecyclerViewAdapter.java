@@ -4,9 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,19 +13,15 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.redhood.hoolicalendar.R;
-import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.bean.NewsList;
-import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.ui.VerticalCenterImageSpan;
 import com.redhood.hoolicalendar.utils.GlideImageLoader;
-import com.redhood.hoolicalendar.utils.HttpRequest;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -41,6 +35,11 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     List<NewsList.NewslistBean> news;
     Context context;
     private int ITEM_HEADER = 1, ITEM_CONTENT = 2, ITEM_FOOTER = 3;
+    Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
 
     public NewsRecyclerViewAdapter(List<NewsList.NewslistBean> news) {
         this.news = news;
@@ -116,6 +115,12 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 //            vh.tv_news_title.setCompoundDrawablePadding(40);
 
+            //item点击事件
+            holder.itemView.setOnClickListener(v->{
+                if (callback != null){
+                    callback.onItemClick(v,position);
+                }
+            });
 
         }
     }
@@ -178,5 +183,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         return bitmap;
     }
 
-
+    public interface Callback{
+        void onItemClick(View v, int position);
+    }
 }

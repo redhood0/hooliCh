@@ -32,6 +32,7 @@
         <activity android:name=".WebViewActivity" android:launchMode="singleTop"/>
         <activity android:name=".SettingActivity" android:launchMode="singleTop"/>
         <activity android:name=".MyMessageActivity" android:launchMode="singleTop"/>
+        <activity android:name=".NewsListDetailActivity" android:launchMode="singleTop"/>
 
 
     </application>

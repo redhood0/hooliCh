@@ -80,7 +80,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         user = ACache.get(getActivity()).getAsString("user");
         Log.d("user", ACache.get(getActivity()).getAsString("user") + "");
         if (myInformation == null && user != null&&!myinformationurl.equals(ORIGINURL)) {
-            new HttpRequest(getContext(), this).getRequest(myinformationurl, MyInformation.class);
+            new HttpRequest(getContext(), this).getInfoRequest(myinformationurl, MyInformation.class);
         }
         if (myInformation != null) {
             Glide.with(getContext()).load(myInformation.getPortrait()).into(cv_head);
@@ -211,7 +211,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
                 myInformation = (MyInformation) bean;
                 Glide.with(getContext()).load(myInformation.getPortrait()).into(cv_head);
                 tv_name.setText(myInformation.getName());
-            }).getRequest(myinformationurl, MyInformation.class);
+            }).getInfoRequest(myinformationurl, MyInformation.class);
         }
     }
 
