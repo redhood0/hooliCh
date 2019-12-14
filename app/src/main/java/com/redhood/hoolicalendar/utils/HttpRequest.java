@@ -30,9 +30,9 @@ public class HttpRequest {
         this.callback = callback;
     }
 
-    public void getRequest(String url, Class clazz) {
+    public void getRequest(String url,String params, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
-        String fullUrl = URL_PRE + url + TOKEN;
+        String fullUrl = URL_PRE + url + TOKEN+params;
         StringRequest stringRequest = new StringRequest(fullUrl, response -> {
             Object o = JSON.parseObject(response, clazz);
             callback.processBeanRequest(o);

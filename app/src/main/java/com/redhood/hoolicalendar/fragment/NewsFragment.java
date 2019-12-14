@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.redhood.hoolicalendar.NewsListDetailActivity;
 import com.redhood.hoolicalendar.R;
@@ -39,7 +40,7 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
         recyclerView = v.findViewById(R.id.rv_home_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
-        new HttpRequest(getContext(), this).getRequest(NEWSLISTURL, NewsList.class);
+        new HttpRequest(getContext(), this).getRequest(NEWSLISTURL,"", NewsList.class);
         Log.d("ee",""+list);
 
 
@@ -51,12 +52,14 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
         list = ((NewsList) bean).getNewslist();
         adapter = new NewsRecyclerViewAdapter(list);
         adapter.notifyDataSetChanged();
+        adapter.setCallback(this);
         recyclerView.setAdapter(adapter);
 
     }
 
     @Override
     public void onItemClick(View v, int position) {
+        Toast.makeText(getContext(), ""+position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), NewsListDetailActivity.class);
         int newsId = list.get(position).getId();
         intent.putExtra("newId",newsId);

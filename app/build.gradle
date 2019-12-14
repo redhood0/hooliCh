@@ -54,4 +54,5 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'cn.bingoogolapple:bga-banner:3.0.0'
     implementation 'com.alibaba:fastjson:1.1.71.android'
+    implementation 'com.wang.avi:library:2.1.3'
 }
