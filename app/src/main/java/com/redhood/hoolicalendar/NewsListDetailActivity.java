@@ -1,5 +1,6 @@
 package com.redhood.hoolicalendar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 
@@ -24,6 +25,8 @@ public class NewsListDetailActivity extends AppCompatActivity {
 
     private void init(){
         wv_news = findViewById(R.id.wv_news);
+        Intent intent = getIntent();
+        int newId = intent.getIntExtra("newId", 0);
 //        wv_news.loadUrl();
     }
 }
