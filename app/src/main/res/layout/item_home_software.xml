@@ -18,33 +18,39 @@
         android:layout_height="wrap_content"
         android:text="Hunt Redis 是使用D语言开发的Redis客户端，非常容易使用，API移植自Jdis项目，兼容Redis2.8X...."
         android:maxLines="2"
+        android:textColor="#9D9D9D"
         ></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
         >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/start_icon"
+            android:layout_gravity="center_vertical"
             ></ImageView>
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="456"-->
-<!--            >-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="45"
+            android:textColor="#9D9D9D"
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/message_icon"
+            android:layout_marginLeft="20dp"
             ></ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="233"
+            android:textColor="#9D9D9D"
             >
         </TextView>
     </LinearLayout>

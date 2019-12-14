@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NewsFragment extends Fragment implements BeanCallback {
 
     RecyclerView recyclerView;
-    private final static String NEWSLISTURL = "https://www.oschina.net/action/openapi/news_list?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
+    private final static String NEWSLISTURL = "/openapi/news_list";
     NewsRecyclerViewAdapter adapter;
     List<NewsList.NewslistBean> list;
 
