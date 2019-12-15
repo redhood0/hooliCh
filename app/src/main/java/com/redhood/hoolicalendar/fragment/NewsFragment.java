@@ -13,6 +13,7 @@ import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.adapter.NewsRecyclerViewAdapter;
 import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.bean.NewsList;
+import com.redhood.hoolicalendar.bean.ProgremsBean;
 import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.utils.HttpRequest;
 
@@ -41,8 +42,6 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
         new HttpRequest(getContext(), this).getRequest(NEWSLISTURL,"", NewsList.class);
-        Log.d("ee",""+list);
-
 
         return v;
     }

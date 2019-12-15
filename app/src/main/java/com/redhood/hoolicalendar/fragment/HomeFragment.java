@@ -64,8 +64,8 @@ public class HomeFragment extends Fragment {
         fragments.add(new RelationAdvFragment());
         fragments.add(new HomeSoftWareFragment());
         fragments.add(new NewsFragment());
-        fragments.add(new PersonFragment());
-        fragments.add(new PersonFragment());
+        fragments.add(new HomeRecomandFragment());
+        fragments.add(new HomeQuestionFragment());
 
         PagerAdapter pagerAdapter = new MyPagerAdapter(getChildFragmentManager(),BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
                 ,fragments);

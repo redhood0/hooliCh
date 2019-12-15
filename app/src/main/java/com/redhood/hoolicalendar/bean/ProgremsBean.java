@@ -4,14 +4,14 @@ import java.util.List;
 
 public class ProgremsBean {
 
-    List<ProgremBean> beans;
+    List<ProgremBean> projectlist;
 
-    public List<ProgremBean> getBeans() {
-        return beans;
+    public List<ProgremBean> getProjectlist() {
+        return projectlist;
     }
 
-    public void setBeans(List<ProgremBean> beans) {
-        this.beans = beans;
+    public void setProjectlist(List<ProgremBean> projectlist) {
+        this.projectlist = projectlist;
     }
 
     public static class ProgremBean {

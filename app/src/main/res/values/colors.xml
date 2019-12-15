@@ -31,4 +31,6 @@
     <color name="bg_4FA257">#4FA257</color>
     <color name="bg_3E8146">#3E8146</color>
     <color name="bg_5DBD65">#5DBD65</color>
+
+    <color name="item_selected_color">#99E4E3E3</color>
 </resources>

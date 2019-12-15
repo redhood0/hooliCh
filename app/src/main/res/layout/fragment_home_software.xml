@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/ns_home_software"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,7 +26,8 @@
             app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
             app:banner_pointTopBottomMargin="15dp"
             app:banner_transitionEffect="alpha"
-
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             />
 
         <LinearLayout
@@ -79,7 +84,7 @@
                     android:src="@mipmap/hot_ch_icon"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,7 +96,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_hot_ch"></TextView>
+                    app:layout_constraintTop_toBottomOf="@+id/iv_hot_ch"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +115,7 @@
                     android:src="@mipmap/newest_soft"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -158,10 +163,11 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_software"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
