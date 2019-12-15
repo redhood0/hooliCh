@@ -23,9 +23,9 @@
         android:title="综合" />
 
     <item
-        android:id="@+id/navigation_dynamic"
+        android:id="@+id/navigation_tweet"
         android:icon="@drawable/tweet_icon"
-        android:title="动态" />
+        android:title="动弹" />
 
     <item
         android:id="@+id/navigation_add"

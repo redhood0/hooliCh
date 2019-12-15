@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dynamic"
-        android:name="com.redhood.hoolicalendar.fragment.DynamicFragment"
+        android:id="@+id/navigation_tweet"
+        android:name="com.redhood.hoolicalendar.fragment.TweetFragment"
         android:label="Dynamic"
-        tools:layout="@layout/fragment_dynamic" />
+        tools:layout="@layout/fragment_tweet" />
 
     <fragment
         android:id="@+id/navigation_find"
-        android:name="com.redhood.hoolicalendar.fragment.DynamicFragment"
+        android:name="com.redhood.hoolicalendar.fragment.FindFragment"
         android:label="Dynamic"
-        tools:layout="@layout/fragment_dynamic" />
+        tools:layout="@layout/fragment_find" />
 
     <fragment
         android:id="@+id/navigation_person"
