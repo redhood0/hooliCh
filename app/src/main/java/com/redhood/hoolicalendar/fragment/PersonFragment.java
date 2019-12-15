@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.redhood.hoolicalendar.LoginActivity;
+import com.redhood.hoolicalendar.MyInfoActivity;
 import com.redhood.hoolicalendar.MyMessageActivity;
 import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.SettingActivity;
@@ -70,6 +71,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         cv_head.setOnClickListener(this);
         fl_setting.setOnClickListener(this);
         fl_grcode.setOnClickListener(this);
+        tv_name.setOnClickListener(this);
 
 
         String url = ACache.get(getActivity()).getAsString("url")+"";
@@ -153,8 +155,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.setOutsideTouchable(true);
         popupWindow.setFocusable(true);
-
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -170,6 +173,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
             case R.id.fl_grcode:
                 showGRcodeWindow();
                 break;
+            case R.id.tv_name:
+                if (myInformation!=null){
+                    startActivity(new Intent(getActivity(), MyInfoActivity.class));
+                }
         }
     }
 

@@ -36,6 +36,7 @@ public class MyMessageActivity extends AppCompatActivity {
     }
 
     private void init(){
+        findViewById(R.id.fl_back).setOnClickListener(v->finish());
         vp = findViewById(R.id.vp);
         tab = findViewById(R.id.tab);
         tv_title = findViewById(R.id.tv_title);

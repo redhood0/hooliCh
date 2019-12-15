@@ -27,6 +27,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
     }
 
     private void init(){
+        findViewById(R.id.fl_back).setOnClickListener(v->finish());
         cl_logout = findViewById(R.id.cl_logout);
         tv_title = findViewById(R.id.tv_title);
         tv_title.setText("设置");

@@ -33,6 +33,7 @@
         <activity android:name=".SettingActivity" android:launchMode="singleTop"/>
         <activity android:name=".MyMessageActivity" android:launchMode="singleTop"/>
         <activity android:name=".NewsListDetailActivity" android:launchMode="singleTop"/>
+        <activity android:name=".MyInfoActivity" android:launchMode="singleTop"/>
 
 
     </application>
