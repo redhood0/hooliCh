@@ -27,6 +27,7 @@ import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.utils.ACache;
 import com.redhood.hoolicalendar.utils.HttpRequest;
+import com.redhood.hoolicalendar.utils.WindowUtil;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,6 +46,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
     public static MyInformation myInformation;
     public static String user;
     private  PopupWindow popupWindow;
+    ImageView imageView;
 
     public static String myinformationurl = "https://www.oschina.net/action/openapi/my_information?access_token=";
     private final String ORIGINURL = "https://www.oschina.net/action/openapi/my_information?access_token=";
@@ -68,6 +70,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         tv_name = view.findViewById(R.id.tv_name);
         fl_setting = view.findViewById(R.id.fl_setting);
         fl_grcode = view.findViewById(R.id.fl_grcode);
+        imageView = view.findViewById(R.id.iv_head);
         cv_head.setOnClickListener(this);
         fl_setting.setOnClickListener(this);
         fl_grcode.setOnClickListener(this);
@@ -109,8 +112,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
                     startActivity(intent);
                     break;
                 case 1:
-                    Toast.makeText(getContext(), "" + 1, Toast.LENGTH_SHORT).show();
-                    showHeadImgWindow();
+//                    imageView.setVisibility(View.VISIBLE);
+                    WindowUtil.showHeadImgWindow(getActivity(),myInformation.getPortrait(),cv_head);
                     break;
 
             }
@@ -120,18 +123,17 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         builder.create().show();
     }
 
-    private void showHeadImgWindow(){
-        showWindow();
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_show_pic,null,false);
-        ImageView imageView = view.findViewById(R.id.iv_head);
-        imageView.setVisibility(View.VISIBLE);
-        Glide.with(getActivity()).load(myInformation.getPortrait()).into(imageView);
-        popupWindow.setContentView(view);
-        popupWindow.showAsDropDown(cv_head);
-        view.setOnClickListener(v->{
-            popupWindow.dismiss();
-        });
-    }
+//    private void showHeadImgWindow(){
+//        showWindow();
+//        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_show_pic,null,false);
+//        ImageView imageView = view.findViewById(R.id.iv_head);
+//        Glide.with(getActivity()).load(myInformation.getPortrait()).into(imageView);
+//        popupWindow.setContentView(view);
+//        popupWindow.showAsDropDown(cv_head);
+//        view.setOnClickListener(v->{
+//            popupWindow.dismiss();
+//        });
+//    }
 
     private void showGRcodeWindow(){
         showWindow();

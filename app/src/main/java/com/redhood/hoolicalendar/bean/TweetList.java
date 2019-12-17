@@ -172,5 +172,20 @@ public class TweetList {
         public void setImgSmall(String imgSmall) {
             this.imgSmall = imgSmall;
         }
+
+        @Override
+        public String toString() {
+            return "TweetlistBean{" +
+                    "author='" + author + '\'' +
+                    ", id=" + id +
+                    ", portrait='" + portrait + '\'' +
+                    ", authorid=" + authorid +
+                    ", body='" + body + '\'' +
+                    ", pubDate='" + pubDate + '\'' +
+                    ", commentCount=" + commentCount +
+                    ", imgBig='" + imgBig + '\'' +
+                    ", imgSmall='" + imgSmall + '\'' +
+                    '}';
+        }
     }
 }
