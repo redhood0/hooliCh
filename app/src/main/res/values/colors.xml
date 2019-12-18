@@ -33,4 +33,7 @@
     <color name="bg_5DBD65">#5DBD65</color>
 
     <color name="item_selected_color">#99E4E3E3</color>
+
+    <color name="gray">#D5D2D2</color>
+    <color name="cccccc">#cccccc</color>
 </resources>

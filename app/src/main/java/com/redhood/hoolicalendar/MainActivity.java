@@ -1,6 +1,8 @@
 package com.redhood.hoolicalendar;
 
 
+import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,9 +20,11 @@ import android.widget.PopupWindow;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.redhood.hoolicalendar.activitys.QBActivity;
 import com.redhood.hoolicalendar.fragment.PersonFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -79,15 +83,52 @@ public class MainActivity extends AppCompatActivity {
         //引入依附的布局
 //        View parentView = LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_home, null);
         popupWindow.showAtLocation((View)bottomNav.getParent(), Gravity.TOP,0,0);
-        LinearLayout llayout_popup = popup_add_icon.findViewById(R.id.llayout_popup);
+        ConstraintLayout llayout_popup = popup_add_icon.findViewById(R.id.llayout_popup);
+        //获取图片
         ImageView iv_icon = popup_add_icon.findViewById(R.id.iv_icon);
+        ImageView iv_icon2 = popup_add_icon.findViewById(R.id.iv_icon2);
+        ImageView iv_icon3 = popup_add_icon.findViewById(R.id.iv_icon3);
+        //设置动画
+        iconDoAnimima(iv_icon);
+        iconDoAnimima2(iv_icon2);
+        iconDoAnimima3(iv_icon3);
         llayout_popup.setOnClickListener(v -> {
             Log.e("ss", "showPopUpWindow: " );
             popupWindow.dismiss();
         });
-//        iv_icon.setOnClickListener(v -> {
-//            Log.e("ss", "sb: " );
-//        });
+
+        iv_icon.setOnClickListener(v -> {
+            Log.e("ss", "sb: " );
+            Intent intent = new Intent(this, QBActivity.class);
+            startActivity(intent);
+            popupWindow.dismiss();
+        });
+    }
+
+    private void iconDoAnimima(View view){
+        ObjectAnimator oa = ObjectAnimator.ofFloat(view,"translationY",0,-300 );
+        oa.setDuration(500);
+        oa.start();
+    }
+
+    private void iconDoAnimima2(View view){
+        ObjectAnimator oa = ObjectAnimator.ofFloat(view,"translationY",0,-150 );
+        ObjectAnimator ob = ObjectAnimator.ofFloat(view,"translationX",0,-300 );
+
+        oa.setDuration(500);
+        ob.setDuration(500);
+        oa.start();
+        ob.start();
+    }
+
+    private void iconDoAnimima3(View view){
+        ObjectAnimator oa = ObjectAnimator.ofFloat(view,"translationY",0,-150 );
+        ObjectAnimator ob = ObjectAnimator.ofFloat(view,"translationX",0,300 );
+
+        oa.setDuration(500);
+        ob.setDuration(500);
+        oa.start();
+        ob.start();
     }
 
     /**

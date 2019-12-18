@@ -11,7 +11,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/icon_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/cricle_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
@@ -34,6 +34,9 @@
         <activity android:name=".MyMessageActivity" android:launchMode="singleTop"/>
         <activity android:name=".NewsListDetailActivity" android:launchMode="singleTop"/>
         <activity android:name=".MyInfoActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.QBActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.QuestionRoundActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.DoQuestionActivity" android:launchMode="singleTop"/>
 
 
     </application>

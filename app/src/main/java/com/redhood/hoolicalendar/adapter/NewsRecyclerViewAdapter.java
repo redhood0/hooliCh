@@ -13,7 +13,9 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -116,11 +119,29 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 //            vh.tv_news_title.setCompoundDrawablePadding(40);
 
             //item点击事件
-            holder.itemView.setOnClickListener(v->{
+            vh.itemView.setOnClickListener(v->{
                 if (callback != null){
                     callback.onItemClick(v,position);
                 }
             });
+
+
+
+//
+//            vh.tv_news_title.setOnTouchListener(new View.OnTouchListener() {
+//
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    Log.e("ss", "onBindViewHolder: ssss" );
+//                    return true;
+//                }
+//            });
+//
+//            vh.cs_news.setOnClickListener(v->{
+//                if (callback != null){
+//                    callback.onItemClick(vh.itemView,position);
+//                }
+//            });
 
         }
     }
@@ -143,20 +164,24 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     private static class HeadViewHolder extends RecyclerView.ViewHolder {
         Banner testBanner;
 
+
         public HeadViewHolder(View itemView) {
             super(itemView);
             testBanner = itemView.findViewById(R.id.testbanner);
+
+
         }
     }
 
     private static class NewsItemViewHolder extends RecyclerView.ViewHolder {
         TextView tv_news_title,tv_content,tv_author;
-
+        ConstraintLayout cs_news;
         public NewsItemViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_news_title = itemView.findViewById(R.id.tv_news_title);
             tv_content = itemView.findViewById(R.id.tv_content);
             tv_author = itemView.findViewById(R.id.tv_author);
+            cs_news = itemView.findViewById(R.id.cs_news);
         }
     }
 
