@@ -47,17 +47,17 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         setContentView(R.layout.activity_web_view);
         webView = findViewById(R.id.web_view);
 //
-        LoginAccessUtil.login(this, "15906288611", "z159q357", "wvNfVJCvSKXPT2SCrsCG", "EM4JUtta9ykQxny0kHHBxjTwntjflWe8", "https://www.baidu.com/");
+        LoginAccessUtil.login(this, "15906288611", "z159q357", "ju3PsZlUISlVFU7Tiyjp", "u7MfnN3jqQRM4LNsMsOLtddkdWhBpemB", "https://www.baidu.com/");
     }
 
     //这里使用user
     @Override
     public void getUserMsg(String userJson) {
-        Log.e("ssss", "getUserMsg: " + userJson);
         ACache.get(this.getApplicationContext()).put("user", userJson);
         ACache.get(this.getApplicationContext()).put("login", "true");
         Oauth2Token oauth2Token = JSON.parseObject(userJson, Oauth2Token.class);
         token = oauth2Token.getToken().getAccessToken();
+        Log.d("token",token);
         ACache.get(this.getApplicationContext()).put("token", token);
         if (!token.equals(ACache.get(this).getAsString("token"))){
             ACache.get(this).remove("token");

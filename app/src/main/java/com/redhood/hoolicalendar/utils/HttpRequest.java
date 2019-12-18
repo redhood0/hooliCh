@@ -17,7 +17,7 @@ import com.redhood.hoolicalendar.callback.BeanCallback;
 public class HttpRequest {
     private static final String TAG = "HttpRequest";
     public static String URL_PRE = "https://www.oschina.net/action";
-    public static String TOKEN ="?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
+    public static String TOKEN ="?access_token=633d045a-c120-4eff-952a-721843db70cb";
     private String newsListUrl = "https://www.oschina.net/action/openapi/news_list?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
     private String myInformationUrl = "https://www.oschina.net/action/openapi/my_information?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
 

@@ -72,8 +72,8 @@ public class LoginAccessUtil {
                                 // 通过login方法登录，获得token和用户信息
                                 AuthResponse<AuthUser> response = authRequest.login(callback);
                                 AuthUser user = response.getData();
-
                                 String userString = JSON.toJSON(user).toString();
+                                Log.d("userString",userString);
                                 ((CallBackForUser)activity).getUserMsg(userString);
                                 Log.e("....", "shouldOverrideUrlLoading: "+ userString );
                                 activity.runOnUiThread(() -> {
