@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/ic_discover_shake"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <LinearLayout
+            android:id="@+id/ll_login_username"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="72dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/find_input"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="软件、博客、问答、用户"
+                android:textColor="#D8D8D8"
+                android:textSize="18dp"></TextView>
+
+            <!--            <EditText-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:background="@null"-->
+            <!--                android:paddingLeft="4dp"-->
+            <!--                android:paddingRight="4dp"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textColorHint="@color/login_line_color"-->
+            <!--                android:textCursorDrawable="@null"-->
+            <!--                android:textSize="16sp"-->
+            <!--                ></EditText>-->
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:src="@mipmap/ic_discover_scan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:background="@color/underline_gray"></View>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zhpan.bannerview.BannerViewPager
+                android:id="@+id/find_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_70"
+                android:src="@mipmap/find_little_icon"></ImageView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_6"
+                android:background="#F0F0F0"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="划水排行榜"
+                    android:textColor="#111111"
+                    android:textSize="@dimen/dp_20"
+                    android:textStyle="bold"></TextView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_150"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/find_people_rank"
+
+                    ></ImageView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_6"
+                android:background="#F0F0F0"></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="精选软件"
+                android:textColor="#111111"
+                android:textSize="@dimen/dp_20"
+                android:textStyle="bold"></TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_software"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

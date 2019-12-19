@@ -58,4 +58,8 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    implementation 'com.github.zhpanvip:BannerViewPager:2.6.1'
+
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
 }
