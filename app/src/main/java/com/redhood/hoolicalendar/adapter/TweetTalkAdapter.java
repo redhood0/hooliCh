@@ -46,6 +46,10 @@ public class TweetTalkAdapter extends RecyclerView.Adapter<TweetTalkAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TweetTalkBean tweetTalkBean = list.get(position);
         holder.tv_title.setText(tweetTalkBean.getTitle());
+        if (position>4){
+            position -=4;
+        }
+        Log.d("position",position+"");
         holder.tv_title.setBackgroundResource(backgrounds[position]);
         holder.tv_4.setText(tweetTalkBean.getPerson());
         HashMap<String, String> hashMap = tweetTalkBean.getHashMap();
