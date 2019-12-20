@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.redhood.hoolicalendar.R;
-import com.redhood.hoolicalendar.fragment.QB_HomeFragment;
+import com.redhood.hoolicalendar.fragment.QBHomeFragment;
 import com.redhood.hoolicalendar.ui.BottomBar;
 import com.redhood.hoolicalendar.utils.AssertUtil;
 import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
@@ -46,7 +46,7 @@ public class QBActivity extends AppCompatActivity {
         BottomBar bottomBar = findViewById(R.id.bottom_bar);
         bottomBar.setContainer(R.id.fl_container)
                 .setTitleBeforeAndAfterColor("#999999", "#1A55CB")
-                .addItem(QB_HomeFragment.class,
+                .addItem(QBHomeFragment.class,
                         "首页",
                         R.mipmap.home_before,
                         R.mipmap.home_after)

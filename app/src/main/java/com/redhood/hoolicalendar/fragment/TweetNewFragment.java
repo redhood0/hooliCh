@@ -29,7 +29,7 @@ import java.util.List;
  * 最新动弹
  */
 public class TweetNewFragment extends Fragment implements BeanCallback {
-    public static RecyclerView rv_tweet_new;
+    private static RecyclerView rv_tweet_new;
     List<TweetList.TweetlistBean> lists;
 
     @Nullable

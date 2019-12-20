@@ -23,7 +23,7 @@ import java.util.HashMap;
  * @author cky
  * date 2019-10-10
  */
-public class QB_HomeFragment extends Fragment implements View.OnClickListener {
+public class QBHomeFragment extends Fragment implements View.OnClickListener {
     TextView tv_title,tv_question_edit,tv_question_finish_num;
     Button btn_do_question;
     TextView tv_select;

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,12 +17,12 @@
             android:src="@mipmap/ic_discover_shake"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/ll_login_username"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="72dp"
@@ -39,7 +40,7 @@
                 android:layout_marginLeft="16dp"
                 android:text="软件、博客、问答、用户"
                 android:textColor="#D8D8D8"
-                android:textSize="18dp"></TextView>
+                android:textSize="18dp" />
 
             <!--            <EditText-->
             <!--                android:layout_width="match_parent"-->
@@ -61,14 +62,14 @@
             android:src="@mipmap/ic_discover_scan"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.25dp"
-        android:background="@color/underline_gray"></View>
+        android:background="@color/underline_gray" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -91,13 +92,13 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_70"
-                android:src="@mipmap/find_little_icon"></ImageView>
+                android:src="@mipmap/find_little_icon" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_6"
-                android:background="#F0F0F0"></View>
+                android:background="#F0F0F0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,7 +113,7 @@
                     android:text="划水排行榜"
                     android:textColor="#111111"
                     android:textSize="@dimen/dp_20"
-                    android:textStyle="bold"></TextView>
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -122,9 +123,7 @@
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_marginBottom="@dimen/dp_10"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/find_people_rank"
-
-                    ></ImageView>
+                    android:src="@mipmap/find_people_rank" />
 
             </LinearLayout>
 
@@ -132,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_6"
-                android:background="#F0F0F0"></View>
+                android:background="#F0F0F0" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -142,7 +141,7 @@
                 android:text="精选软件"
                 android:textColor="#111111"
                 android:textSize="@dimen/dp_20"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_software"

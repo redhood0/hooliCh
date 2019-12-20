@@ -27,6 +27,7 @@ import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.utils.ACache;
 import com.redhood.hoolicalendar.utils.HttpRequest;
+import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 import com.redhood.hoolicalendar.utils.WindowUtil;
 
 import androidx.annotation.NonNull;

@@ -67,12 +67,14 @@ public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHo
         holder.tv_content.setTag(position);
 
         tweetlistBean = lists.get(position);
+        if (context != null)
         Glide.with(context).load(tweetlistBean.getPortrait()).into(holder.civ_head);
         holder.tv_name.setText(tweetlistBean.getAuthor());
         holder.tv_time.setText(tweetlistBean.getPubDate());
         holder.tv_content.setText(Html.fromHtml(tweetlistBean.getBody()));
 
         holder.tv_content.setOnClickListener(this);
+
 
         if (tweetlistBean.getImgSmall() != null && !tweetlistBean.getImgSmall().equals("null")) {
             String[] imgUrls = transImgUrl(tweetlistBean.getImgSmall());
@@ -96,8 +98,12 @@ public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHo
             }
             holder.cl_img.setVisibility(View.VISIBLE);
             for (int i = 0; i < array.size(); i++) {
+                if (context != null){
+
                 Glide.with(context).load(array.get(i)).placeholder(R.mipmap.ic_tweet_picture_normal).into(
                         holder.imgs[i]);
+                }
+
             }
         }
 

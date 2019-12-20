@@ -62,4 +62,5 @@ dependencies {
     implementation 'com.github.zhpanvip:BannerViewPager:2.6.1'
 
     implementation 'jp.wasabeef:glide-transformations:4.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

@@ -18,6 +18,7 @@ import com.redhood.hoolicalendar.bean.NewsDetail;
 import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.ui.LoadingDialog;
 import com.redhood.hoolicalendar.utils.HttpRequest;
+import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 
 /**
  * @author cky
@@ -32,6 +33,7 @@ public class NewsListDetailActivity extends AppCompatActivity implements BeanCal
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
+        ImmersiveStatusBarSettings.setAndroidNativeLightStatusBar(this,true);
         init();
     }
 

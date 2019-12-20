@@ -33,6 +33,7 @@ public class HttpRequest {
     public void getRequest(String url,String params, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
         String fullUrl = URL_PRE + url + TOKEN + params;
+        Log.d("fullUrl",fullUrl);
         StringRequest stringRequest = new StringRequest(fullUrl, response -> {
             Object o = JSON.parseObject(response, clazz);
             callback.processBeanRequest(o);

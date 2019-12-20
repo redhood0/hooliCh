@@ -22,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.redhood.hoolicalendar.activitys.QBActivity;
 import com.redhood.hoolicalendar.fragment.PersonFragment;
+import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        ImmersiveStatusBarSettings.settingStatusBar(this);
+        ImmersiveStatusBarSettings.setAndroidNativeLightStatusBar(this,true);
         initCompent();
     }
 
