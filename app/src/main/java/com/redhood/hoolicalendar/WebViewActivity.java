@@ -36,7 +36,7 @@ import me.zhyd.oauth.request.AuthOschinaRequest;
 
 
 public class WebViewActivity extends AppCompatActivity implements CallBackForUser {
-    private WebView webView;
+
     private String code;
     private String state;
     public static String token;
@@ -45,7 +45,7 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        webView = findViewById(R.id.web_view);
+
 //
         LoginAccessUtil.login(this, "15906288611", "z159q357", "ju3PsZlUISlVFU7Tiyjp", "u7MfnN3jqQRM4LNsMsOLtddkdWhBpemB", "https://www.baidu.com/");
     }

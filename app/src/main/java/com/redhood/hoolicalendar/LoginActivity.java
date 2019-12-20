@@ -382,7 +382,7 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
 
     //登录
     private void loginRequest() {
-
+        startActivity(new Intent(this,WebViewActivity.class));
     }
 
     //微博登录
