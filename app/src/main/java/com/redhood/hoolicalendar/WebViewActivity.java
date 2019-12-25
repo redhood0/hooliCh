@@ -47,7 +47,7 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         setContentView(R.layout.activity_web_view);
 
 //
-        LoginAccessUtil.login(this, "15906288611", "z159q357", "ju3PsZlUISlVFU7Tiyjp", "u7MfnN3jqQRM4LNsMsOLtddkdWhBpemB", "https://www.baidu.com/");
+        LoginAccessUtil.login(this, "15906288611", "z159q357", "4j04O3p83UCbyRBkE3Ak", "OhDfsfUkAGM3NwmABeT1BhzF44qaqDKj", "https://www.baidu.com/");
     }
 
     //这里使用user
