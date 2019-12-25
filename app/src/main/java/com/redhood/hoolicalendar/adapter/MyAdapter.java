@@ -19,7 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     private int[] imgs ={R.mipmap.ic_my_message,R.mipmap.ic_my_badge,R.mipmap.ic_my_profile,
             R.mipmap.ic_my_blog,R.mipmap.ic_my_blacklist,R.mipmap.ic_my_question,
             R.mipmap.ic_my_publish,R.mipmap.ic_my_event,R.mipmap.ic_my_tags,R.mipmap.ic_my_recommend};
-    private String[] tvs = {"我的消息","我的勋章","阅读记录","我的博客","我的灰名单","我的问答","我的投递","我的活动","关注标签","邀请好友"};
+    private String[] tvs = {"我的消息","我的做题","错题记录","熟练题","数据统计","我的问答","我的投递","我的活动","关注标签","邀请好友"};
     private OnItemClickListener onItemClickListener = null;
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {

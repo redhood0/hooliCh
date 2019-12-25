@@ -22,6 +22,10 @@ import com.redhood.hoolicalendar.MyMessageActivity;
 import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.SettingActivity;
 import com.redhood.hoolicalendar.WebViewActivity;
+import com.redhood.hoolicalendar.activitys.DataStatisticalActivity;
+import com.redhood.hoolicalendar.activitys.ProficiencyQuestionActivity;
+import com.redhood.hoolicalendar.activitys.QBActivity;
+import com.redhood.hoolicalendar.activitys.WrongQuestionCollectionActivity;
 import com.redhood.hoolicalendar.adapter.MyAdapter;
 import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.callback.BeanCallback;
@@ -189,6 +193,21 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
             case 0:
                 startActivity(new Intent(getActivity(), MyMessageActivity.class));
                 break;
+            case 1:
+                startActivity(new Intent(getActivity(), QBActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(getActivity(), WrongQuestionCollectionActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(getActivity(), ProficiencyQuestionActivity.class));
+                break;
+            case 4:
+                startActivity(new Intent(getActivity(), DataStatisticalActivity.class));
+                break;
+
+
+
 
         }
     }

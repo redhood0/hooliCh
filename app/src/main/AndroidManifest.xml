@@ -37,6 +37,10 @@
         <activity android:name=".activitys.QBActivity" android:launchMode="singleTop"/>
         <activity android:name=".activitys.QuestionRoundActivity" android:launchMode="singleTop"/>
         <activity android:name=".activitys.DoQuestionActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.WrongQuestionDetailActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.WrongQuestionCollectionActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.ProficiencyQuestionActivity" android:launchMode="singleTop"/>
+        <activity android:name=".activitys.DataStatisticalActivity" android:launchMode="singleTop"/>
 
 
     </application>

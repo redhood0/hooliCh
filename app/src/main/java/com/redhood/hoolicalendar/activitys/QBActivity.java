@@ -42,7 +42,7 @@ public class QBActivity extends AppCompatActivity {
             }
         }).start();
 
-        new ImmersiveStatusBarSettings().settingStatusBar(this);
+        ImmersiveStatusBarSettings.settingStatusBar(this);
         BottomBar bottomBar = findViewById(R.id.bottom_bar);
         bottomBar.setContainer(R.id.fl_container)
                 .setTitleBeforeAndAfterColor("#999999", "#1A55CB")
