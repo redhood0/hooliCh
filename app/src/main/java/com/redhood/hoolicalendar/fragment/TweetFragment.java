@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.adapter.MyPagerAdapter;
+import com.redhood.hoolicalendar.ui.LoadingDialog;
 
 import java.util.ArrayList;
 import java.util.List;

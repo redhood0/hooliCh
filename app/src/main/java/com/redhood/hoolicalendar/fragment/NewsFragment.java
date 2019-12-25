@@ -15,6 +15,7 @@ import com.redhood.hoolicalendar.bean.MyInformation;
 import com.redhood.hoolicalendar.bean.NewsList;
 import com.redhood.hoolicalendar.bean.ProgremsBean;
 import com.redhood.hoolicalendar.callback.BeanCallback;
+import com.redhood.hoolicalendar.ui.LoadingDialog;
 import com.redhood.hoolicalendar.utils.HttpRequest;
 
 import java.util.ArrayList;
@@ -32,12 +33,15 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
     private final static String NEWSLISTURL = "/openapi/news_list";
     NewsRecyclerViewAdapter adapter;
     List<NewsList.NewslistBean> list;
+    LoadingDialog loadingDialog;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home_new, container, false);
-
+        loadingDialog = new LoadingDialog(getContext(),R.style.MyDialogStyle);
+        loadingDialog.setLoadingBg(R.color.bg_3E8146);
+        loadingDialog.show();
         recyclerView = v.findViewById(R.id.rv_home_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
@@ -53,7 +57,7 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
         adapter.notifyDataSetChanged();
         adapter.setCallback(this);
         recyclerView.setAdapter(adapter);
-
+        loadingDialog.dismiss();
     }
 
     @Override

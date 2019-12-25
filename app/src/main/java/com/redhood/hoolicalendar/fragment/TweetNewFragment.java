@@ -18,6 +18,7 @@ import com.redhood.hoolicalendar.R;
 import com.redhood.hoolicalendar.adapter.TweetNewAdapter;
 import com.redhood.hoolicalendar.bean.TweetList;
 import com.redhood.hoolicalendar.callback.BeanCallback;
+import com.redhood.hoolicalendar.ui.LoadingDialog;
 import com.redhood.hoolicalendar.utils.HttpRequest;
 import com.redhood.hoolicalendar.utils.WindowUtil;
 
@@ -31,7 +32,7 @@ import java.util.List;
 public class TweetNewFragment extends Fragment implements BeanCallback {
     private static RecyclerView rv_tweet_new;
     List<TweetList.TweetlistBean> lists;
-
+    LoadingDialog loadingDialog;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,6 +42,9 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
     }
 
     private void init(View view) {
+        loadingDialog = new LoadingDialog(getContext(),R.style.MyDialogStyle);
+        loadingDialog.setLoadingBg(R.color.bg_3E8146);
+        loadingDialog.show();
         rv_tweet_new = view.findViewById(R.id.rv_tweet_new);
         new HttpRequest(getContext(), this).getRequest("/openapi/tweet_list", "", TweetList.class);
     }
@@ -74,6 +78,6 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
         });
         rv_tweet_new.setAdapter(adapter);
         rv_tweet_new.setItemViewCacheSize(20);
-
+        loadingDialog.dismiss();
     }
 }
