@@ -112,7 +112,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             spString.setSpan(imgSpan, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
             vh.tv_news_title.setText(spString);
-            //todo  设置内容
             vh.tv_author.setText(news.get(position).getAuthor());
 //            vh.tv_content.setText();
 

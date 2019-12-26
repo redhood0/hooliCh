@@ -23,8 +23,5 @@ public class TweetMyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tweet_my,container,false);
         return view;
     }
-    private void init(View view){
-//        rv_tweet_new = view.findViewById(R.id.rv_tweet_new);
-    }
 
 }

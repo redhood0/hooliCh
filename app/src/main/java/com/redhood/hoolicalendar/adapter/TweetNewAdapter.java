@@ -72,6 +72,7 @@ public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHo
         Glide.with(context).load(tweetlistBean.getPortrait()).into(holder.civ_head);
         holder.tv_name.setText(tweetlistBean.getAuthor());
         holder.tv_time.setText(tweetlistBean.getPubDate());
+        /**html超链接格式**/
         holder.tv_content.setText(Html.fromHtml(tweetlistBean.getBody()));
 
         holder.tv_content.setOnClickListener(this);

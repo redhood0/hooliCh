@@ -30,6 +30,12 @@ public class WindowUtil {
         popupWindow.setFocusable(true);
     }
 
+    /**
+     * 设置查看大头像
+     * @param context
+     * @param url 地址
+     * @param anchor 作为参考位置
+     */
     public static void showHeadImgWindow(Context context, String url, View anchor) {
         showWindow();
         View view = LayoutInflater.from(context).inflate(R.layout.layout_show_pic, null, false);

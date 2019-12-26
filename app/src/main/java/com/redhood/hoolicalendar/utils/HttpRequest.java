@@ -29,6 +29,12 @@ public class HttpRequest {
         this.callback = callback;
     }
 
+    /**
+     * 通用请求
+     * @param url 请求地址
+     * @param params 请求参数
+     * @param clazz 转换类型
+     */
     public void getRequest(String url,String params, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
         String fullUrl = URL_PRE + url + TOKEN + params;
@@ -42,6 +48,11 @@ public class HttpRequest {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * 仅限用户信息使用
+     * @param url
+     * @param clazz
+     */
     public void getInfoRequest(String url, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(url, response -> {

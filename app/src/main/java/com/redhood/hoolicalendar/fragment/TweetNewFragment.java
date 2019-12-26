@@ -58,6 +58,9 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         rv_tweet_new.setLayoutManager(manager);
         TweetNewAdapter adapter = new TweetNewAdapter(lists, getContext());
+        /**
+         * 根据name判断点击的是哪个  默认为item
+         */
         adapter.setCallBack((v, name, position) -> {
             switch (name) {
                 case "iv_tweet1":
@@ -70,13 +73,13 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
                     WindowUtil.showHeadImgWindow(getContext(), adapter.transImgUrl(((TweetList) bean).getTweetlist().get(position).getImgBig())[2], rv_tweet_new);
                     break;
                 case "tv_content":
-
                     break;
                     default:
                         break;
             }
         });
         rv_tweet_new.setAdapter(adapter);
+        /**设置item缓存  防止图片多次加载**/
         rv_tweet_new.setItemViewCacheSize(20);
         loadingDialog.dismiss();
     }
