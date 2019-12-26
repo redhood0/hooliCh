@@ -13,7 +13,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        new ImmersiveStatusBarSettings().settingStatusBar(this);
+        ImmersiveStatusBarSettings.settingStatusBar(this);
 
         findViewById(R.id.ib_navigation_back).setOnClickListener(this);
     }

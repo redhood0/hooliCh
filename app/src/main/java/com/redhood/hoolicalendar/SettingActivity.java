@@ -15,6 +15,7 @@ import com.redhood.hoolicalendar.utils.ACache;
 /**
  * @author cky
  * date 2019-12-12
+ * 设置
  */
 public class SettingActivity extends Activity implements View.OnClickListener {
     ConstraintLayout cl_logout;
@@ -37,6 +38,10 @@ public class SettingActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * 注销
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()){

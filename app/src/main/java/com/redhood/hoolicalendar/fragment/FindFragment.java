@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.TextView;
 
 import com.redhood.hoolicalendar.R;
-import com.redhood.hoolicalendar.TransCoding;
 import com.redhood.hoolicalendar.adapter.FindSoftwareAdapter;
 import com.redhood.hoolicalendar.bean.FindBannerData;
 import com.redhood.hoolicalendar.bean.FindSoftwareBean;
@@ -18,7 +15,6 @@ import com.redhood.hoolicalendar.ui.FindViewHolder;
 import com.zhpan.bannerview.BannerViewPager;
 import com.zhpan.bannerview.constants.IndicatorGravity;
 import com.zhpan.bannerview.holder.HolderCreator;
-import com.zhpan.bannerview.holder.ViewHolder;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;

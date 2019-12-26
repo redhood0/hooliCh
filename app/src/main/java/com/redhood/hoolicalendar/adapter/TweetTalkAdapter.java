@@ -23,6 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * @author cky
  * date 2019-12-20
+ * 动弹话题
  */
 public class TweetTalkAdapter extends RecyclerView.Adapter<TweetTalkAdapter.ViewHolder>{
     private List<TweetTalkBean> list;
