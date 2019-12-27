@@ -26,6 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * @author cky
  * date 2019-12-14
+ * 我的资料  登录后点击用户名进入
  */
 public class MyInfoActivity extends AppCompatActivity {
     TextView tv_title, tv_nick_name, tv_join_time, tv_city, tv_platforms, tv_expertise;
@@ -59,9 +60,14 @@ public class MyInfoActivity extends AppCompatActivity {
         tv_city.setText(myInformation.getCity());
         tv_platforms.setText(setListToString(myInformation.getPlatforms()));
         tv_expertise.setText(setListToString(myInformation.getExpertise()));
-        Log.d("size:",myInformation.getPlatforms().size()+">>>"+myInformation.getExpertise().size());
     }
 
+
+    /**
+     * 容器转为<Javaee，javase>格式
+     * @param listToString 容器
+     * @return
+     */
     private String setListToString(List listToString) {
         StringBuilder result = new StringBuilder("<");
 

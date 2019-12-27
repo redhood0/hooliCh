@@ -33,6 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * @author cky
  * date 2019-12-16
+ * 动弹最新
  */
 public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHolder> implements View.OnClickListener {
     private List<TweetList.TweetlistBean> lists;
@@ -71,6 +72,7 @@ public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHo
         Glide.with(context).load(tweetlistBean.getPortrait()).into(holder.civ_head);
         holder.tv_name.setText(tweetlistBean.getAuthor());
         holder.tv_time.setText(tweetlistBean.getPubDate());
+        /**html超链接格式**/
         holder.tv_content.setText(Html.fromHtml(tweetlistBean.getBody()));
 
         holder.tv_content.setOnClickListener(this);
@@ -106,10 +108,13 @@ public class TweetNewAdapter extends RecyclerView.Adapter<TweetNewAdapter.ViewHo
 
             }
         }
-
-
     }
 
+    /**
+     * 转换图片地址
+     * @param url
+     * @return
+     */
     public String[] transImgUrl(String url) {
         String str = url.substring(41);
         String[] result = str.split(",");

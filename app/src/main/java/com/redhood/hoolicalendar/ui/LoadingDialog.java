@@ -13,6 +13,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 /**
  * @author cky
  * date 2019-12-14
+ * loading动画
  */
 public class LoadingDialog extends Dialog {
 

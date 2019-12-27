@@ -13,13 +13,12 @@ import com.redhood.hoolicalendar.callback.BeanCallback;
 /**
  * @author cky
  * date 2019-12-11
+ * http请求
  */
 public class HttpRequest {
     private static final String TAG = "HttpRequest";
-    public static String URL_PRE = "https://www.oschina.net/action";
-    public static String TOKEN ="?access_token=4a13c46b-6f45-4a38-9035-4bd8d55b7d0c";
-    private String newsListUrl = "https://www.oschina.net/action/openapi/news_list?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
-    private String myInformationUrl = "https://www.oschina.net/action/openapi/my_information?access_token=5f68366f-1f9b-4006-8373-e041550c54b7";
+    private static String URL_PRE = "https://www.oschina.net/action";
+    private static String TOKEN ="?access_token=4a13c46b-6f45-4a38-9035-4bd8d55b7d0c";
 
     private RequestQueue requestQueue;
     private Context context;
@@ -30,6 +29,12 @@ public class HttpRequest {
         this.callback = callback;
     }
 
+    /**
+     * 通用请求
+     * @param url 请求地址
+     * @param params 请求参数
+     * @param clazz 转换类型
+     */
     public void getRequest(String url,String params, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
         String fullUrl = URL_PRE + url + TOKEN + params;
@@ -43,6 +48,11 @@ public class HttpRequest {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * 仅限用户信息使用
+     * @param url
+     * @param clazz
+     */
     public void getInfoRequest(String url, Class clazz) {
         requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(url, response -> {
@@ -53,7 +63,6 @@ public class HttpRequest {
         });
         requestQueue.add(stringRequest);
     }
-    //todo:增加一个post请求的接口参数包含，url，输入json字符串，返回class
 
 
 }

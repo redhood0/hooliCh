@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * @author cky
  * date 2019-12-15
- * 热门动弹
+ * 热门动弹 同最新
  */
 public class TweetHotFragment extends Fragment implements BeanCallback {
     private static RecyclerView rv_tweet_new;

@@ -16,6 +16,7 @@ import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 /**
  * @author cky
  * date 2019-12-12
+ * 启动页面
  */
 public class LaunchViewActivity extends Activity {
 

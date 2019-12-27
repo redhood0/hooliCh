@@ -26,7 +26,7 @@ import java.util.List;
  * 话题动弹
  */
 public class TweetTalkFragment extends Fragment {
-    List<TweetTalkBean> list;
+    private List<TweetTalkBean> list;
     RecyclerView rv_talk;
     @Nullable
     @Override

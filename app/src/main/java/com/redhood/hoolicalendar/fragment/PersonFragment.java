@@ -107,6 +107,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
         adapter.setOnItemClickListener(this);
     }
 
+    /**
+     * 查看大头像和更换头像
+     */
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext()).setTitle("选择操作").setItems(new String[]{"更换头像", "查看大头像"}, (dialogInterface, i) -> {
             switch (i) {
@@ -140,6 +143,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener, My
 //        });
 //    }
 
+    /**
+     * 二维码
+     */
     private void showGRcodeWindow(){
         showWindow();
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_show_pic,null,false);

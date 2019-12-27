@@ -20,6 +20,7 @@ import java.util.List;
 /**
  * @author cky
  * date 2019-12-12
+ * 我的消息
  */
 public class MyMessageActivity extends AppCompatActivity {
     TextView tv_title;
@@ -42,10 +43,8 @@ public class MyMessageActivity extends AppCompatActivity {
         tv_title = findViewById(R.id.tv_title);
         tv_title.setText("消息中心");
         fragmentList = new ArrayList<>();
-
         for (int i = 0; i < titles.length; i++) {
             tab.addTab(tab.newTab());
-
             fragmentList.add(new EmptyFragment());
         }
 

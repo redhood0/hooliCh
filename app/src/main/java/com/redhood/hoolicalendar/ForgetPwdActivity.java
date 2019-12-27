@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 
-
+/**
+ * 忘记密码
+ */
 public class ForgetPwdActivity extends AppCompatActivity implements View.OnClickListener{
     TextView tv_navigation_label;
 
@@ -17,7 +19,7 @@ public class ForgetPwdActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pwd);
 
-        new ImmersiveStatusBarSettings().settingStatusBar(this);
+        ImmersiveStatusBarSettings.settingStatusBar(this);
         tv_navigation_label = findViewById(R.id.tv_navigation_label);
         tv_navigation_label.setText("找回密码");
         findViewById(R.id.ib_navigation_back).setOnClickListener(this);

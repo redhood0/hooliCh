@@ -23,6 +23,7 @@ import com.redhood.hoolicalendar.utils.ImmersiveStatusBarSettings;
 /**
  * @author cky
  * date 2019-12-14
+ * 新闻细节
  */
 public class NewsListDetailActivity extends AppCompatActivity implements BeanCallback {
     WebView wv_news;

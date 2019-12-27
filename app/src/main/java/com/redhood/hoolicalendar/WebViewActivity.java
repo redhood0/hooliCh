@@ -46,11 +46,14 @@ public class WebViewActivity extends AppCompatActivity implements CallBackForUse
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-//
         LoginAccessUtil.login(this, "15906288611", "z159q357", "4j04O3p83UCbyRBkE3Ak", "OhDfsfUkAGM3NwmABeT1BhzF44qaqDKj", "https://www.baidu.com/");
     }
 
-    //这里使用user
+
+    /**
+     * 登录账号更换之后 更token
+     * @param userJson 用户数据
+     */
     @Override
     public void getUserMsg(String userJson) {
         ACache.get(this.getApplicationContext()).put("user", userJson);
