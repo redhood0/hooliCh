@@ -77,7 +77,6 @@ public class FindFragment extends Fragment {
         rv_software.setLayoutManager(gm);
         rv_software.addItemDecoration(new FindSoftwareDecoration(10));
         rv_software.setAdapter(new FindSoftwareAdapter(softwareData,this));
-
     }
 
 

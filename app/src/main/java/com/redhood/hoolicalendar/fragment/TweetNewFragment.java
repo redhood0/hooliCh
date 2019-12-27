@@ -21,6 +21,12 @@ import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.ui.LoadingDialog;
 import com.redhood.hoolicalendar.utils.HttpRequest;
 import com.redhood.hoolicalendar.utils.WindowUtil;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
@@ -33,6 +39,10 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
     private static RecyclerView rv_tweet_new;
     List<TweetList.TweetlistBean> lists;
     LoadingDialog loadingDialog;
+    RefreshLayout refreshLayout;
+    int nums = 5;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,7 +56,28 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
         loadingDialog.setLoadingBg(R.color.bg_3E8146);
         loadingDialog.show();
         rv_tweet_new = view.findViewById(R.id.rv_tweet_new);
-        new HttpRequest(getContext(), this).getRequest("/openapi/tweet_list", "", TweetList.class);
+        new HttpRequest(getContext(), this).getRequest("/openapi/tweet_list", "&pageSize=" + nums, TweetList.class);
+        refreshLayout = view.findViewById(R.id.refreshLayout);
+
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                nums += 3;
+                new HttpRequest(getContext(), TweetNewFragment.this).getRequest("/openapi/tweet_list", "&pageSize="+(nums), TweetList.class);
+            }
+        });
+
+        //设置 Header 为 贝塞尔雷达 样式
+        refreshLayout.setRefreshHeader(new BezierRadarHeader(getContext()).setEnableHorizontalDrag(true));
+        //设置 Footer 为 球脉冲 样式
+        refreshLayout.setRefreshFooter(new BallPulseFooter(getContext()).setSpinnerStyle(SpinnerStyle.Scale));
     }
 
 
@@ -79,5 +110,9 @@ public class TweetNewFragment extends Fragment implements BeanCallback {
         rv_tweet_new.setAdapter(adapter);
         rv_tweet_new.setItemViewCacheSize(20);
         loadingDialog.dismiss();
+        refreshLayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
+        if(nums >5){
+            rv_tweet_new.scrollToPosition(nums-2);
+        }
     }
 }

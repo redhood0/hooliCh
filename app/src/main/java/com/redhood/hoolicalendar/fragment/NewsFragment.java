@@ -17,6 +17,8 @@ import com.redhood.hoolicalendar.bean.ProgremsBean;
 import com.redhood.hoolicalendar.callback.BeanCallback;
 import com.redhood.hoolicalendar.ui.LoadingDialog;
 import com.redhood.hoolicalendar.utils.HttpRequest;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,7 @@ public class NewsFragment extends Fragment implements BeanCallback,NewsRecyclerV
         loadingDialog.show();
         recyclerView = v.findViewById(R.id.rv_home_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-
+//        new BallPulseFooter(this).setSpinnerStyle(SpinnerStyle.Scale)
         new HttpRequest(getContext(), this).getRequest(NEWSLISTURL,"", NewsList.class);
 
         return v;

@@ -31,6 +31,7 @@ public class FindSoftwareAdapter extends RecyclerView.Adapter<FindSoftwareAdapte
     List<FindSoftwareBean> datas;
     Fragment fg;
 
+
     public FindSoftwareAdapter(List<FindSoftwareBean> datas, Fragment fg) {
         this.datas = datas;
         this.fg = fg;

@@ -81,7 +81,6 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
         mEtLoginPwd = findViewById(R.id.et_login_pwd);
         mIvLoginPwdDel = findViewById(R.id.iv_login_pwd_del);
 
-
         mBtLoginSubmit = findViewById(R.id.bt_login_submit);
         mBtLoginRegister = findViewById(R.id.bt_login_register);
 
